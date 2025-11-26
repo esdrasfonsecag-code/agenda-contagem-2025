@@ -1,5 +1,16 @@
-console.log("Script carregado!");
+// Lista com nome + email
+const emails = {
+    "Ana Amelia Fonseca Viana Cruz": "ana.vicruz@ulife.com.br",
+    "Ana Paula dos Santos Gomes": "ana.paula1@animaeducacao.com.br",
+    "Camilla Ayala Felisberto Silva": "camilla.felisberto@animaeducacao.com.br",
+    "Cristina Carvalho de Melo": "cristina.melo@animaeducacao.com.br",
+    "Daniel Portela Dias Machado": "daniel.portela@animaeducacao.com.br",
+    "Elisa Siqueira": "elisa.siqueira@animaeducacao.com.br",
+    "Elizabeth Rodrigues Brito Ibrahim": "elizabeth.ibrahim@animaeducacao.com.br",
+    "Marcos Ferreira Benedito": "marcos.benedito@animaeducacao.com.br"
+};
 
+// Agenda completa
 const dias = [
     {
         nome: "Segunda-feira",
@@ -44,7 +55,7 @@ const dias = [
         horarios: [
             "Daniel Portela Dias Machado — 08:00 às 12:00",
             "Camilla Ayala Felisberto Silva — 13:00 às 17:00",
-            "Danielle Portela Dias Machado — 15:00 às 21:00",
+            "Daniel Portela Dias Machado — 15:00 às 21:00",
             "Ana Amelia Fonseca Viana Cruz — 13:00 às 21:00"
         ]
     },
@@ -63,11 +74,32 @@ const dias = [
 
 let index = 0;
 
+// Função para gerar botão de email
+function gerarBotaoEmail(nome) {
+    const email = emails[nome];
+    if (!email) return ""; // caso nome não esteja cadastrado
+
+    return `
+        <a class="email-btn" href="mailto:${email}">
+            Enviar Email
+        </a>
+    `;
+}
+
 function atualizar() {
     document.getElementById("dia-atual").innerText = dias[index].nome;
 
     document.getElementById("conteudo").innerHTML =
-        dias[index].horarios.map(h => `<p>${h}</p>`).join("");
+        dias[index].horarios.map(h => {
+            const [nome, horario] = h.split(" — ");
+            return `
+                <div class="card">
+                    <p><strong>${nome}</strong></p>
+                    <p>${horario}</p>
+                    ${gerarBotaoEmail(nome)}
+                </div>
+            `;
+        }).join("");
 }
 
 document.getElementById("prev").onclick = () => {
