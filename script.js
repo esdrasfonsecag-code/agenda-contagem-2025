@@ -1,3 +1,5 @@
+console.log("Script carregado!");
+
 const dias = [
     {
         nome: "Segunda-feira",
