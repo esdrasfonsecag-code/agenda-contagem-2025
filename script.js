@@ -1,4 +1,3 @@
-// Lista com nome + email
 const emails = {
     "Ana Amelia Fonseca Viana Cruz": "ana.vicruz@ulife.com.br",
     "Ana Paula dos Santos Gomes": "ana.paula1@animaeducacao.com.br",
@@ -10,7 +9,6 @@ const emails = {
     "Marcos Ferreira Benedito": "marcos.benedito@animaeducacao.com.br"
 };
 
-// Agenda completa
 const dias = [
     {
         nome: "Segunda-feira",
@@ -26,7 +24,6 @@ const dias = [
             "Marcos Ferreira Benedito — 16:00 às 21:00"
         ]
     },
-
     {
         nome: "Terça-feira",
         horarios: [
@@ -40,7 +37,6 @@ const dias = [
             "Cristina Carvalho de Melo — 15:00 às 20:30"
         ]
     },
-
     {
         nome: "Quarta-feira",
         horarios: [
@@ -49,7 +45,6 @@ const dias = [
             "Elizabeth Rodrigues Brito Ibrahim — 17:00 às 21:00"
         ]
     },
-
     {
         nome: "Quinta-feira",
         horarios: [
@@ -59,7 +54,6 @@ const dias = [
             "Ana Amelia Fonseca Viana Cruz — 13:00 às 21:00"
         ]
     },
-
     {
         nome: "Sexta-feira",
         horarios: [
@@ -74,21 +68,18 @@ const dias = [
 
 let index = 0;
 
-// Função para gerar botão de email
 function gerarBotaoEmail(nome) {
     const email = emails[nome];
-    if (!email) return ""; // caso nome não esteja cadastrado
-
+    if (!email) return "";
     return `
-        <a class="email-btn" href="mailto:${email}">
-            Enviar Email
+        <a class="email-btn" href="mailto:${email}" title="Enviar email para ${nome}">
+            <i class="fas fa-envelope"></i>
         </a>
     `;
 }
 
 function atualizar() {
     document.getElementById("dia-atual").innerText = dias[index].nome;
-
     document.getElementById("conteudo").innerHTML =
         dias[index].horarios.map(h => {
             const [nome, horario] = h.split(" — ");
