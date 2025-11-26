@@ -68,6 +68,7 @@ const dias = [
 
 let index = 0;
 
+// Função para criar botão de email com ícone
 function gerarBotaoEmail(nome) {
     const email = emails[nome];
     if (!email) return "";
@@ -78,14 +79,16 @@ function gerarBotaoEmail(nome) {
     `;
 }
 
+// Função para atualizar conteúdo da agenda
 function atualizar() {
     document.getElementById("dia-atual").innerText = dias[index].nome;
+
     document.getElementById("conteudo").innerHTML =
         dias[index].horarios.map(h => {
             const [nome, horario] = h.split(" — ");
             return `
                 <div class="card">
-                    <div>
+                    <div class="card-info">
                         <p class="nome">${nome}</p>
                         <p class="horario">${horario}</p>
                     </div>
@@ -95,6 +98,7 @@ function atualizar() {
         }).join("");
 }
 
+// Navegação entre dias
 document.getElementById("prev").onclick = () => {
     index = (index === 0) ? dias.length - 1 : index - 1;
     atualizar();
@@ -105,4 +109,5 @@ document.getElementById("next").onclick = () => {
     atualizar();
 };
 
+// Inicializa a agenda
 atualizar();
