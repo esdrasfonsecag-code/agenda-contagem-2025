@@ -85,8 +85,10 @@ function atualizar() {
             const [nome, horario] = h.split(" — ");
             return `
                 <div class="card">
-                    <p><strong>${nome}</strong></p>
-                    <p>${horario}</p>
+                    <div>
+                        <p class="nome">${nome}</p>
+                        <p class="horario">${horario}</p>
+                    </div>
                     ${gerarBotaoEmail(nome)}
                 </div>
             `;
