@@ -7,6 +7,7 @@ body {
 
 h1 {
     margin-bottom: 20px;
+    color: #222;
 }
 
 #dia-atual {
@@ -42,25 +43,33 @@ button:hover {
     margin-right: auto;
     font-size: 18px;
 }
+
 .card {
     background: #ffffff;
     padding: 12px;
     margin: 10px 0;
     border-radius: 10px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .email-btn {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
     background: #007bff;
     color: white;
-    border-radius: 6px;
+    border-radius: 50%;
     text-decoration: none;
+    font-size: 18px;
     transition: 0.2s;
 }
 
 .email-btn:hover {
     background: #0056b3;
+    transform: scale(1.1);
 }
