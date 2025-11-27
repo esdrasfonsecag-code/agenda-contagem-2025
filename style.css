@@ -1,40 +1,71 @@
-/* Ícone de email futurista neon */
-.email-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    text-decoration: none;
+/* Fundo animado */
+body {
+    margin: 0;
+    font-family: "Poppins", Arial, sans-serif;
+    background: linear-gradient(135deg, #0d1117, #161b22, #1f2937);
+    background-size: 300% 300%;
+    animation: bgMove 12s infinite alternate ease-in-out;
+    color: #fff;
 }
 
-.email-btn i {
-    font-size: 28px;
-    padding: 14px;
-    background: rgba(0, 0, 0, 0.45);
+@keyframes bgMove {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(5px);
+    padding: 20px;
     border-radius: 14px;
-    color: #00f2ff;
-    box-shadow: 0 0 10px #00f2ff99, 0 0 20px #00f2ff55 inset;
-    backdrop-filter: blur(6px);
-    transition: 0.25s ease;
-    border: 1px solid #00f2ff44;
+    box-shadow: 0 0 20px rgba(255,255,255,0.08);
+    animation: fadeIn 0.7s ease;
 }
 
-/* Efeito hover neon */
-.email-btn i:hover {
-    transform: scale(1.18) translateY(-3px);
-    box-shadow: 
-        0 0 15px #00f2ff,
-        0 0 25px #00f2ffaa,
-        0 0 40px #00f2ff66 inset;
-    background: rgba(0, 0, 0, 0.65);
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Animação pulsante leve */
-@keyframes neonPulse {
-    0% { box-shadow: 0 0 10px #00f2ff55; }
-    50% { box-shadow: 0 0 16px #00f2ff; }
-    100% { box-shadow: 0 0 10px #00f2ff55; }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #fff;
 }
 
-.email-btn i {
-    animation: neonPulse 2.2s infinite;
+th {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
+
+td {
+    padding: 14px;
+    text-align: center;
+    vertical-align: top;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+td:hover {
+    background: rgba(255,255,255,0.08);
+    cursor: default;
+}
+
+/* Ícone como botão */
+.email-btn {
+    cursor: pointer;
+    font-size: 22px;
+    margin-top: 6px;
+    display: inline-block;
