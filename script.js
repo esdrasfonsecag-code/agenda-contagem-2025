@@ -1,84 +1,28 @@
-body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
-    padding: 20px;
-    text-align: center;
-    color: #333;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda Contagem 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Agenda dos Coordenadores — 2025</h1>
 
-h1, h2 {
-    margin-bottom: 20px;
-}
+    <!-- Controle de dias -->
+    <div class="controls">
+        <button id="prev">Dia Anterior</button>
+        <button id="next">Próximo Dia</button>
+    </div>
 
-.controls {
-    margin-bottom: 20px;
-}
+    <!-- Agenda -->
+    <div id="dia-atual" class="dia-atual"></div>
+    <div id="conteudo" class="agenda"></div>
 
-button {
-    padding: 10px 20px;
-    margin: 0 10px 20px 10px;
-    cursor: pointer;
-    border-radius: 8px;
-    border: none;
-    background: #007bff;
-    color: white;
-    font-size: 16px;
-    transition: 0.2s;
-}
+    <!-- Coordenadores e cursos -->
+    <h2>Coordenadores e Cursos</h2>
+    <div id="coordenadores" class="coordenadores"></div>
 
-button:hover {
-    background: #0056b3;
-}
-
-.agenda, .coordenadores {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 900px;
-    margin: 0 auto 40px auto;
-}
-
-.card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    text-align: left;
-}
-
-.card-info {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-}
-
-.nome {
-    font-size: 16px;
-}
-
-.horario, .email {
-    font-size: 14px;
-    font-weight: normal;
-}
-
-.email-btn {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 5px 10px;
-    background: #28a745;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: 0.2s;
-    font-size: 14px;
-}
-
-.email-btn:hover {
-    background: #1e7e34;
-}
-
-.cursos {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 5px;
-}
+    <script src="script.js"></script>
+</body>
+</html>
