@@ -1,3 +1,32 @@
+const emails = {
+    "Ana Amelia Fonseca Viana Cruz": "ana.vicruz@ulife.com.br",
+    "Ana Paula dos Santos Gomes": "ana.paula1@animaeducacao.com.br",
+    "Camilla Ayala Felisberto Silva": "camilla.felisberto@animaeducacao.com.br",
+    "Cristina Carvalho de Melo": "cristina.melo@animaeducacao.com.br",
+    "Daniel Portela Dias Machado": "daniel.portela@animaeducacao.com.br",
+    "Elisa Carvalho de Siqueira": "elisa.siqueira@animaeducacao.com.br",
+    "Elizabeth Rodrigues Brito Ibrahim": "elizabeth.ibrahim@animaeducacao.com.br",
+    "Marcos Ferreira Benedito": "marcos.benedito@animaeducacao.com.br"
+};
+
+const dias = [
+    {
+        nome: "Segunda-feira",
+        horarios: [
+            "Marcos Ferreira Benedito — 08:00 às 12:00",
+            "Ana Paula dos Santos Gomes — 08:30 às 12:30",
+            "Cristina Carvalho de Melo — 11:40 às 13:40",
+            "Camilla Ayala Felisberto Silva — 13:00 às 17:00",
+            "Ana Paula dos Santos Gomes — 13:00 às 15:00",
+            "Elizabeth Rodrigues Brito Ibrahim — 14:00 às 17:00",
+            "Cristina Carvalho de Melo — 15:00 às 19:00",
+            "Elisa Carvalho de Siqueira — 14:00 às 21:00",
+            "Marcos Ferreira Benedito — 16:00 às 21:00"
+        ]
+    },
+    // Continue com os outros dias aqui...
+];
+
 const coordenadores = {
     "Ana Amelia Fonseca Viana Cruz": {
         email: "ana.vicruz@ulife.com.br",
@@ -104,3 +133,51 @@ const coordenadores = {
         ]
     }
 };
+
+// Função para gerar botão de email
+function gerarBotaoEmail(nome) {
+    const email = emails[nome];
+    if (!email) return "";
+    return `<a class="email-btn" href="mailto:${email}">📧</a>`;
+}
+
+// Função que atualiza a agenda
+let index = 0;
+function atualizar() {
+    document.getElementById("dia-atual").innerText = dias[index].nome;
+    document.getElementById("conteudo").innerHTML = dias[index].horarios.map(h => {
+        const [nome, horario] = h.split(" — ");
+        return `
+            <div class="card">
+                <div class="card-info">
+                    <p class="nome">${nome}</p>
+                    <p class="horario">${horario}</p>
+                </div>
+                ${gerarBotaoEmail(nome)}
+            </div>
+        `;
+    }).join("");
+}
+
+// Função que renderiza os coordenadores
+function renderCoordenadores() {
+    const container = document.getElementById("coordenadores");
+    container.innerHTML = Object.keys(coordenadores).map(nome => {
+        const c = coordenadores[nome];
+        return `
+            <div class="card">
+                <p class="nome"><strong>${nome}</strong></p>
+                <p class="email">${c.email}</p>
+                <ul class="cursos">
+                    ${c.cursos.map(course => `<li>${course}</li>`).join('')}
+                </ul>
+            </div>
+        `;
+    }).join('');
+}
+
+document.getElementById("prev").onclick = () => { index = (index === 0) ? dias.length - 1 : index - 1; atualizar(); };
+document.getElementById("next").onclick = () => { index = (index === dias.length - 1) ? 0 : index + 1; atualizar(); };
+
+atualizar();
+renderCoordenadores();
