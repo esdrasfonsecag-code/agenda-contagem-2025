@@ -45,7 +45,7 @@ function atualizar() {
                 ${gerarBotaoEmail(nome)}
             </div>
         `;
-    }).join('');
+    }).join("");
 }
 
 function renderCoordenadores() {
