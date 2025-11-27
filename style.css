@@ -1,90 +1,110 @@
-/* ===== Fundo neon animado ===== */
-body {
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: white;
-    background: linear-gradient(120deg, #000011, #000033, #001144, #000033, #000011);
-    background-size: 400% 400%;
-    animation: neonMove 12s infinite alternate;
+:root{
+  --bg-1:#03030a;
+  --neon-cyan:#00eaff;
+  --neon-mag:#9b4dff;
+  --card-bg: rgba(255,255,255,0.03);
+  --glass: rgba(255,255,255,0.02);
+  --text: #e8fbff;
 }
 
-@keyframes neonMove {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg-1);
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
-/* ===== Layout principal ===== */
-.container {
-    max-width: 1200px;
-    margin: auto;
-    padding: 20px;
+/* Neon animated background */
+.neon-bg{
+  position:fixed; inset:0; z-index:-2;
+  background:
+    radial-gradient(600px 300px at 10% 20%, rgba(155,77,255,0.13), transparent 12%),
+    radial-gradient(700px 350px at 90% 85%, rgba(0,234,255,0.10), transparent 12%),
+    radial-gradient(480px 240px at 50% 60%, rgba(0,255,150,0.06), transparent 10%),
+    linear-gradient(180deg,#020210 0%, #07071a 100%);
+  filter: blur(36px);
+  transform: scale(1.03);
+  animation: neonShift 14s ease-in-out infinite alternate;
+}
+@keyframes neonShift {
+  0% { transform: translate3d(0,0,0) scale(1.03); }
+  50% { transform: translate3d(40px,-20px,0) scale(1.06); }
+  100% { transform: translate3d(-30px,30px,0) scale(1.03); }
 }
 
-h1, h2 {
-    text-align: center;
-    text-shadow: 0 0 10px #00eaff;
+/* Top */
+.topbar { padding:22px 20px 6px; text-align:center; }
+.title h1 { margin:0; font-size:20px; color:var(--neon-cyan); letter-spacing:0.6px;
+  text-shadow: 0 0 12px rgba(0,234,255,0.08); }
+.now { margin-top:8px; opacity:.9; font-size:13px }
+
+/* Layout */
+.wrap{
+  max-width:1200px;
+  margin:20px auto 60px;
+  padding: 0 18px;
+  display:grid;
+  grid-template-columns: 220px 1fr;
+  gap:20px;
 }
 
-.day-selector {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    margin: 25px 0;
+/* Sidebar */
+.sidebar{ display:flex; flex-direction:column; align-items:center; gap:12px; position:sticky; top:18px; }
+.ctrl-btn{
+  width:56px;height:44px;border-radius:10px;border:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  color:var(--neon-cyan); font-weight:700; cursor:pointer;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.6);
 }
-
-/* ===== Botões neon ===== */
-.neon-btn {
-    padding: 12px 24px;
-    border-radius: 10px;
-    border: 2px solid #00eaff;
-    background: transparent;
-    color: #00eaff;
-    cursor: pointer;
-    font-weight: 600;
-    transition: 0.3s;
-    text-shadow: 0 0 8px #00eaff;
+.day-buttons{ display:flex; flex-direction:column; gap:10px; align-items:center; width:100%; }
+.day-btn{
+  width:160px;padding:10px 12px;border-radius:12px;border:1px solid rgba(255,255,255,0.04);
+  background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  color:var(--neon-cyan); font-weight:700; cursor:pointer; text-transform:uppercase;
+  transition: transform .15s ease, box-shadow .15s ease;
 }
+.day-btn:hover{ transform:translateX(6px); box-shadow: 0 12px 30px rgba(0,234,255,0.06); }
+.day-btn.active{ background: linear-gradient(90deg,var(--neon-cyan),var(--neon-mag)); color:#001; box-shadow: 0 16px 44px rgba(0,234,255,0.12); }
 
-.neon-btn:hover,
-.neon-btn.active {
-    background: #00eaff;
-    color: #000;
-    box-shadow: 0 0 20px #00eaff;
+/* Main & cards */
+.main{ display:flex; flex-direction:column; gap:18px; }
+.card{ padding:16px; border-radius:12px; background:var(--card-bg); border:1px solid rgba(255,255,255,0.03); box-shadow: 0 18px 40px rgba(0,0,0,0.6); backdrop-filter: blur(6px); }
+.section-title{ color:var(--neon-cyan); margin:0 0 12px 0; }
+
+/* Tables */
+.table-wrap{ overflow:auto; }
+.table{ width:100%; border-collapse:collapse; font-size:14px; }
+.table thead th {
+  padding:10px 12px; text-align:left; font-size:13px; color:#e9faff;
+  border-bottom:1px solid rgba(255,255,255,0.04); background:rgba(255,255,255,0.02);
 }
+.table tbody td{ padding:12px; vertical-align:top; border-bottom:1px dashed rgba(255,255,255,0.02); }
 
-/* ===== Cards dos coordenadores ===== */
-.coordinator-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid #00eaff55;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 0 10px #00eaff44;
-    animation: fade 0.4s ease;
+/* small styles for cells */
+.coord-name{ font-weight:800; color:#f7ffff; }
+.coord-time{ color: rgba(255,255,255,0.85); font-size:13px; }
+.courses-cell{ font-size:13px; color: #eafaf8; line-height:1.4; max-width:720px; }
+
+/* email icon button */
+.email-icon-btn{
+  display:inline-flex; align-items:center; justify-content:center;
+  width:36px; height:36px; border-radius:8px; cursor:pointer;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
+  border:1px solid rgba(255,255,255,0.03);
+  transition: transform .12s ease, box-shadow .12s ease;
 }
+.email-icon-btn:hover{ transform:scale(1.08); box-shadow: 0 10px 26px rgba(0,234,255,0.06); }
 
-@keyframes fade {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* footer */
+.footer{ text-align:center; opacity:.75; margin:30px 0 60px; font-size:13px; }
 
-/* ===== Ícone de email ===== */
-.email-icon {
-    width: 30px;
-    cursor: pointer;
-    filter: drop-shadow(0 0 6px #00eaff);
-    transition: 0.3s;
-}
-
-.email-icon:hover {
-    transform: scale(1.15);
-    filter: drop-shadow(0 0 10px #00eaff);
-}
-
-/* Cursos */
-.course-list {
-    margin-top: 10px;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    opacity: 0.9;
+/* responsive */
+@media (max-width:1000px){
+  .wrap{ grid-template-columns: 1fr; padding: 0 12px; }
+  .day-buttons{ flex-direction:row; gap:8px; flex-wrap:wrap; justify-content:center; }
+  .day-btn{ width:auto; padding:8px 12px; }
 }
