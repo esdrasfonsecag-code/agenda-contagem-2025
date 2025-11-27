@@ -1,26 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda e Coordenadores 2025</title>
+    <meta charset="UTF-8" />
+    <title>Agenda dos Coordenadores — 2025</title>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
+
+    <!-- Font Awesome para ícones -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
+
 <body>
+
     <h1>Agenda dos Coordenadores — 2025</h1>
 
-    <div class="controls">
-        <button id="prev"><i class="fas fa-arrow-left"></i> Dia Anterior</button>
-        <button id="next">Próximo Dia <i class="fas fa-arrow-right"></i></button>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>SEGUNDA</th>
+                    <th>TERÇA</th>
+                    <th>QUARTA</th>
+                    <th>QUINTA</th>
+                    <th>SEXTA</th>
+                </tr>
+            </thead>
+            <tbody id="agenda"></tbody>
+        </table>
+
+        <p class="update-info">Atualizado em: 23/10/2025</p>
     </div>
 
-    <div id="dia-atual"></div>
-    <div id="conteudo"></div>
-
-    <h2>Coordenadores e Cursos</h2>
-    <div id="coordenadores"></div>
-
+    <!-- JS -->
     <script src="script.js"></script>
 </body>
 </html>
