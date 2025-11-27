@@ -1,75 +1,181 @@
-const emails = {
-    "Ana Amelia Fonseca Viana Cruz": "ana.vicruz@ulife.com.br",
-    "Ana Paula dos Santos Gomes": "ana.paula1@animaeducacao.com.br",
-    "Camilla Ayala Felisberto Silva": "camilla.felisberto@animaeducacao.com.br",
-    "Cristina Carvalho de Melo": "cristina.melo@animaeducacao.com.br",
-    "Daniel Portela Dias Machado": "daniel.portela@animaeducacao.com.br",
-    "Elisa Siqueira": "elisa.siqueira@animaeducacao.com.br",
-    "Elizabeth Rodrigues Brito Ibrahim": "elizabeth.ibrahim@animaeducacao.com.br",
-    "Marcos Ferreira Benedito": "marcos.benedito@animaeducacao.com.br"
-};
-
-const dias = [
-    { nome: "Segunda-feira", horarios: [ "Marcos Ferreira Benedito — 08:00 às 12:00", "Ana Paula dos Santos Gomes — 08:30 às 12:30", "Cristina Carvalho de Melo — 11:40 às 13:40", "Camilla Ayala Felisberto Silva — 13:00 às 17:00", "Ana Paula dos Santos Gomes — 13:00 às 15:00", "Elizabeth Rodrigues Brito Ibrahim — 14:00 às 17:00", "Cristina Carvalho de Melo — 15:00 às 19:00", "Elisa Siqueira — 14:00 às 21:00", "Marcos Ferreira Benedito — 16:00 às 21:00" ] },
-    { nome: "Terça-feira", horarios: [ "Elizabeth Rodrigues Brito Ibrahim — 13:00 às 17:00", "Ana Amelia Fonseca Viana Cruz — 08:30 às 12:30", "Ana Amelia Fonseca Viana Cruz — 13:30 às 17:30", "Ana Paula dos Santos Gomes — 14:30 às 19:00", "Marcos Ferreira Benedito — 14:00 às 18:00", "Camilla Ayala Felisberto Silva — 15:00 às 19:00", "Elisa Siqueira — 14:00 às 19:00", "Cristina Carvalho de Melo — 15:00 às 20:30" ] },
-    { nome: "Quarta-feira", horarios: [ "Elisa Siqueira — 08:00 às 13:00", "Marcos Ferreira Benedito — 17:00 às 21:00", "Elizabeth Rodrigues Brito Ibrahim — 17:00 às 21:00" ] },
-    { nome: "Quinta-feira", horarios: [ "Daniel Portela Dias Machado — 08:00 às 12:00", "Camilla Ayala Felisberto Silva — 13:00 às 17:00", "Daniel Portela Dias Machado — 15:00 às 21:00", "Ana Amelia Fonseca Viana Cruz — 13:00 às 21:00" ] },
-    { nome: "Sexta-feira", horarios: [ "Camilla Ayala Felisberto Silva — 09:00 às 13:00", "Daniel Portela Dias Machado — 17:00 às 19:00", "Cristina Carvalho de Melo — 14:30 às 19:00", "Marcos Ferreira Benedito — 17:00 às 19:00", "Elizabeth Rodrigues Brito Ibrahim — 17:00 às 21:00" ] }
-];
-
-const coordenadores = {
-    "Ana Amelia Fonseca Viana Cruz": { email: "ana.vicruz@ulife.com.br", cursos: ["Biomedicina", "Biomedicina (Semipresencial) 30/70", "Fisioterapia", "Fisioterapia (Semipresencial) 30/70", "Estética e Cosmética", "Estética e Cosmética (Semipresencial) 30/70"] },
-    "Ana Paula dos Santos Gomes": { email: "ana.paula1@animaeducacao.com.br", cursos: ["Nutrição", "Nutrição (Semipresencial) 30/70", "Psicologia"] },
-    "Camilla Ayala Felisberto Silva": { email: "camilla.felisberto@animaeducacao.com.br", cursos: ["Análise e Desenvolvimento de Sistemas", "Análise e Desenvolvimento de Sistemas (Semipresencial) 30/70", "Ciência da Computação (Semipresencial) 30/70", "Ciências da Computação", "Direito", "Sistemas de Informação", "Sistemas de Informação (Semipresencial) 30/70"] },
-    "Cristina Carvalho de Melo": { email: "cristina.melo@animaeducacao.com.br", cursos: ["Administração / Administração (Semipresencial) 30/70","Ciências Contábeis / Ciências Contábeis (Semipresencial) 30/70","Ciências Econômicas / Ciências Econômicas (Semipresencial) 30/70","Comércio Exterior","Educação física / Educação Física (Semipresencial) 30/70","Gestão Comercial","Gestão Comercial (Semipresencial) 30/70","Gestão da Inovação e Empreendedorismo Digital","Gestão da Produção Industrial","Gestão da Qualidade","Gestão da Qualidade (Semipresencial) 30/70","Gestão da Tecnologia da Informação / Gestão da Tecnologia da Informação (Semipresencial) 30/70","Gestão de Processos e Projetos Ágeis","Gestão de Recursos Humanos / Gestão de Recursos Humanos (Semipresencial) 30/70","Gestão Financeira / Gestão Financeira (Semipresencial) 30/70","Gestão Pública (Semipresencial) 30/70","Governança Corporativa e Consultoria de Negócios","Investimento e formação de Traders","Logística / Logística (Semipresencial) 30/70","Marketing / Marketing (Semipresencial) 30/70","Marketing Digital","Negócios Imobiliários","Processos Gerenciais / Processos Gerenciais (Semipresencial) 30/70"] }
-};
-
-let index = 0;
-
-function gerarBotaoEmail(nome) {
-    const email = emails[nome];
-    if (!email) return "";
-    return `<a class="email-btn" href="mailto:${email}" title="Enviar email para ${nome}"><i class="fas fa-envelope"></i></a>`;
+/* Reset e fonte */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    min-height: 100vh;
+    color: #222;
+    background: linear-gradient(-45deg, #84fab0, #8fd3f4, #a6c0fe, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    text-align: center;
 }
 
-function atualizar() {
-    document.getElementById("dia-atual").innerText = dias[index].nome;
-    document.getElementById("conteudo").innerHTML = dias[index].horarios.map(h => {
-        const [nome, horario] = h.split(" — ");
-        return `
-            <div class="card">
-                <div class="card-info">
-                    <p class="nome">${nome}</p>
-                    <p class="horario">${horario}</p>
-                </div>
-                ${gerarBotaoEmail(nome)}
-            </div>
-        `;
-    }).join('');
+/* Gradiente animado */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
 }
 
-function renderCoordenadores() {
-    const container = document.getElementById("coordenadores");
-    container.innerHTML = Object.keys(coordenadores).map(nome => {
-        const c = coordenadores[nome];
-        return `
-            <div class="card">
-                <div class="card-info">
-                    <p class="nome">${nome}</p>
-                    <p class="email"><i class="fas fa-envelope"></i> <a href="mailto:${c.email}">${c.email}</a></p>
-                </div>
-                <div class="cursos">
-                    <ul>
-                        ${c.cursos.map(course => `<li>${course}</li>`).join('')}
-                    </ul>
-                </div>
-            </div>
-        `;
-    }).join('');
+/* Títulos */
+h1, .section-title {
+    color: #222;
+    margin-bottom: 20px;
 }
 
-document.getElementById("prev").onclick = () => { index = (index === 0) ? dias.length - 1 : index - 1; atualizar(); };
-document.getElementById("next").onclick = () => { index = (index === dias.length - 1) ? 0 : index + 1; atualizar(); };
+.section-title {
+    margin-top: 40px;
+    font-size: 1.8em;
+}
 
-atualizar();
-renderCoordenadores();
+/* Botões de dias */
+.controls {
+    margin-bottom: 20px;
+}
+
+.day-btn {
+    padding: 12px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    border-radius: 10px;
+    border: none;
+    background: #007bff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.day-btn i {
+    margin: 0 5px;
+}
+
+.day-btn:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+
+/* Dia atual */
+.dia-atual {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Cards container */
+.cards-container {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
+}
+
+/* Cards da agenda e coordenadores */
+.card {
+    background: rgba(255,255,255,0.95);
+    padding: 15px 20px;
+    margin: 12px 0;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+/* Colunas dentro do card */
+.card-info {
+    flex: 1 1 35%;
+    text-align: left;
+    margin: 5px;
+}
+
+.cursos {
+    flex: 1 1 60%;
+    text-align: left;
+    margin: 5px;
+}
+
+/* Nome e email */
+.card-info .nome {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.card-info .email {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 4px;
+}
+
+.card-info .email a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card-info .email a:hover {
+    text-decoration: underline;
+}
+
+/* Cursos */
+.cursos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cursos li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    line-height: 1.4em;
+    transition: transform 0.2s, color 0.2s;
+    cursor: default;
+}
+
+.cursos li i {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+/* Hover nos cursos */
+.cursos li:hover {
+    color: #0056b3;
+    transform: translateX(3px);
+}
+
+/* Botão de email */
+.email-btn {
+    display: inline-block;
+    font-size: 1.2em;
+    color: #fff;
+    background: #28a745;
+    padding: 10px 14px;
+    border-radius: 50%;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.email-btn:hover {
+    background: #218838;
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media screen and (max-width: 900px) {
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-info, .cursos {
+        flex: 1 1 100%;
+        margin: 5px 0;
+    }
+}
