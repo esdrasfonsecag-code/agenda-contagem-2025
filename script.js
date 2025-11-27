@@ -36,7 +36,6 @@ const dias = [
     ]}
 ];
 
-// Lista completa de coordenadores e cursos
 const coordenadores = {
     "Ana Amelia Fonseca Viana Cruz": {
         email: "ana.vicruz@ulife.com.br",
@@ -124,75 +123,3 @@ const coordenadores = {
             "Design Gráfico (Semipresencial) 30/70"
         ]
     },
-    "Elizabeth Rodrigues Brito Ibrahim": {
-        email: "elizabeth.ibrahim@animaeducacao.com.br",
-        cursos: [
-            "Arquitetura e Urbanismo",
-            "Farmácia",
-            "Farmácia (Semipresencial) 30/70",
-            "História",
-            "Pedagogia",
-            "Pedagogia (Semipresencial) 30/70"
-        ]
-    },
-    "Marcos Ferreira Benedito": {
-        email: "marcos.benedito@animaeducacao.com.br",
-        cursos: [
-            "Enfermagem",
-            "Publicidade e Propaganda",
-            "Jornalismo"
-        ]
-    }
-};
-
-let index = 0;
-
-function gerarBotaoEmail(nome){
-    const email = emails[nome];
-    if(!email) return "";
-    return `<a class="email-btn" href="mailto:${email}">📧 Enviar Email</a>`;
-}
-
-function atualizar(){
-    const diaAtual = document.getElementById("dia-atual");
-    const conteudo = document.getElementById("conteudo");
-    diaAtual.innerText = dias[index].nome;
-    conteudo.innerHTML = dias[index].horarios.map(h=>{
-        const [nome, horario] = h.split(" — ");
-        return `<div class="card">
-                    <div class="card-info">
-                        <p class="nome">${nome}</p>
-                        <p class="horario">${horario}</p>
-                    </div>
-                    ${gerarBotaoEmail(nome)}
-                </div>`;
-    }).join('');
-}
-
-function renderCoordenadores(){
-    const container = document.getElementById("coordenadores");
-    container.innerHTML = Object.keys(coordenadores).map(nome=>{
-        const c = coordenadores[nome];
-        return `<div class="card">
-                    <p class="nome"><strong>${nome}</strong></p>
-                    <p class="email">${c.email}</p>
-                    <ul class="cursos">
-                        ${c.cursos.map(course=>`<li>${course}</li>`).join('')}
-                    </ul>
-                </div>`;
-    }).join('');
-}
-
-document.getElementById("prev").onclick = ()=>{
-    index = (index === 0)? dias.length-1 : index-1;
-    atualizar();
-};
-document.getElementById("next").onclick = ()=>{
-    index = (index === dias.length-1)? 0 : index+1;
-    atualizar();
-};
-
-atualizar();
-renderCoordenadores();
-
-};
