@@ -73,4 +73,3 @@ document.getElementById("next").onclick = () => { index = (index === dias.length
 
 atualizar();
 renderCoordenadores();
-
