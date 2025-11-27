@@ -1,84 +1,181 @@
+/* Reset e fonte */
 body {
-    font-family: Arial, sans-serif;
-    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
     padding: 20px;
+    min-height: 100vh;
+    color: #222;
+    background: linear-gradient(-45deg, #84fab0, #8fd3f4, #a6c0fe, #fbc2eb);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
     text-align: center;
-    color: #333;
 }
 
-h1, h2 {
+/* Gradiente animado */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+
+/* Títulos */
+h1, .section-title {
+    color: #222;
     margin-bottom: 20px;
 }
 
+.section-title {
+    margin-top: 40px;
+    font-size: 1.8em;
+}
+
+/* Botões de dias */
 .controls {
     margin-bottom: 20px;
 }
 
-button {
-    padding: 10px 20px;
-    margin: 0 10px 20px 10px;
+.day-btn {
+    padding: 12px 20px;
+    margin: 0 10px;
     cursor: pointer;
-    border-radius: 8px;
+    border-radius: 10px;
     border: none;
     background: #007bff;
-    color: white;
+    color: #fff;
     font-size: 16px;
-    transition: 0.2s;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-button:hover {
+.day-btn i {
+    margin: 0 5px;
+}
+
+.day-btn:hover {
     background: #0056b3;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-.agenda, .coordenadores {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 900px;
-    margin: 0 auto 40px auto;
-}
-
-.card {
-    background: #fff;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    text-align: left;
-}
-
-.card-info {
-    display: flex;
-    justify-content: space-between;
+/* Dia atual */
+.dia-atual {
+    font-size: 1.8em;
     font-weight: bold;
+    margin-bottom: 20px;
 }
 
-.nome {
-    font-size: 16px;
+/* Cards container */
+.cards-container {
+    max-width: 900px;
+    margin: 0 auto 30px auto;
 }
 
-.horario, .email {
-    font-size: 14px;
-    font-weight: normal;
+/* Cards da agenda e coordenadores */
+.card {
+    background: rgba(255,255,255,0.95);
+    padding: 15px 20px;
+    margin: 12px 0;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.email-btn {
-    display: inline-block;
-    margin-top: 8px;
-    padding: 5px 10px;
-    background: #28a745;
-    color: white;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: 0.2s;
-    font-size: 14px;
+.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-.email-btn:hover {
-    background: #1e7e34;
+/* Colunas dentro do card */
+.card-info {
+    flex: 1 1 35%;
+    text-align: left;
+    margin: 5px;
 }
 
 .cursos {
-    list-style-type: disc;
-    padding-left: 20px;
-    margin-top: 5px;
+    flex: 1 1 60%;
+    text-align: left;
+    margin: 5px;
+}
+
+/* Nome e email */
+.card-info .nome {
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.card-info .email {
+    font-size: 0.95em;
+    color: #555;
+    margin-top: 4px;
+}
+
+.card-info .email a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card-info .email a:hover {
+    text-decoration: underline;
+}
+
+/* Cursos */
+.cursos ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cursos li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 6px;
+    line-height: 1.4em;
+    transition: transform 0.2s, color 0.2s;
+    cursor: default;
+}
+
+.cursos li i {
+    margin-right: 8px;
+    color: #007bff;
+}
+
+/* Hover nos cursos */
+.cursos li:hover {
+    color: #0056b3;
+    transform: translateX(3px);
+}
+
+/* Botão de email */
+.email-btn {
+    display: inline-block;
+    font-size: 1.2em;
+    color: #fff;
+    background: #28a745;
+    padding: 10px 14px;
+    border-radius: 50%;
+    transition: 0.3s;
+    margin-left: 10px;
+}
+
+.email-btn:hover {
+    background: #218838;
+    transform: scale(1.1);
+}
+
+/* Responsividade */
+@media screen and (max-width: 900px) {
+    .card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .card-info, .cursos {
+        flex: 1 1 100%;
+        margin: 5px 0;
+    }
 }
