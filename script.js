@@ -1,3 +1,5 @@
+window.onload = function() {
+
 const emails = {
     "Ana Amelia Fonseca Viana Cruz": "ana.vicruz@ulife.com.br",
     "Ana Paula dos Santos Gomes": "ana.paula1@animaeducacao.com.br",
@@ -9,7 +11,6 @@ const emails = {
     "Marcos Ferreira Benedito": "marcos.benedito@animaeducacao.com.br"
 };
 
-// Exemplo simples de dias
 const dias = [
     {
         nome: "Segunda-feira",
@@ -28,38 +29,14 @@ const dias = [
 ];
 
 const coordenadores = {
-    "Ana Amelia Fonseca Viana Cruz": {
-        email: "ana.vicruz@ulife.com.br",
-        cursos: ["Biomedicina","Fisioterapia"]
-    },
-    "Ana Paula dos Santos Gomes": {
-        email: "ana.paula1@animaeducacao.com.br",
-        cursos: ["Nutrição","Psicologia"]
-    },
-    "Camilla Ayala Felisberto Silva": {
-        email: "camilla.felisberto@animaeducacao.com.br",
-        cursos: ["Análise e Desenvolvimento de Sistemas","Direito"]
-    },
-    "Cristina Carvalho de Melo": {
-        email: "cristina.melo@animaeducacao.com.br",
-        cursos: ["Administração","Ciências Contábeis"]
-    },
-    "Daniel Portela Dias Machado": {
-        email: "daniel.portela@animaeducacao.com.br",
-        cursos: ["Medicina Veterinária","Engenharia Civil"]
-    },
-    "Elisa Carvalho de Siqueira": {
-        email: "elisa.siqueira@animaeducacao.com.br",
-        cursos: ["Odontologia","Design de Interiores"]
-    },
-    "Elizabeth Rodrigues Brito Ibrahim": {
-        email: "elizabeth.ibrahim@animaeducacao.com.br",
-        cursos: ["Arquitetura e Urbanismo","Farmácia"]
-    },
-    "Marcos Ferreira Benedito": {
-        email: "marcos.benedito@animaeducacao.com.br",
-        cursos: ["Enfermagem"]
-    }
+    "Ana Amelia Fonseca Viana Cruz": { email: "ana.vicruz@ulife.com.br", cursos: ["Biomedicina","Fisioterapia"] },
+    "Ana Paula dos Santos Gomes": { email: "ana.paula1@animaeducacao.com.br", cursos: ["Nutrição","Psicologia"] },
+    "Camilla Ayala Felisberto Silva": { email: "camilla.felisberto@animaeducacao.com.br", cursos: ["Análise e Desenvolvimento de Sistemas","Direito"] },
+    "Cristina Carvalho de Melo": { email: "cristina.melo@animaeducacao.com.br", cursos: ["Administração","Ciências Contábeis"] },
+    "Daniel Portela Dias Machado": { email: "daniel.portela@animaeducacao.com.br", cursos: ["Medicina Veterinária","Engenharia Civil"] },
+    "Elisa Carvalho de Siqueira": { email: "elisa.siqueira@animaeducacao.com.br", cursos: ["Odontologia","Design de Interiores"] },
+    "Elizabeth Rodrigues Brito Ibrahim": { email: "elizabeth.ibrahim@animaeducacao.com.br", cursos: ["Arquitetura e Urbanismo","Farmácia"] },
+    "Marcos Ferreira Benedito": { email: "marcos.benedito@animaeducacao.com.br", cursos: ["Enfermagem"] }
 };
 
 let index = 0;
@@ -73,7 +50,6 @@ function gerarBotaoEmail(nome){
 function atualizar(){
     const diaAtual = document.getElementById("dia-atual");
     const conteudo = document.getElementById("conteudo");
-
     diaAtual.innerText = dias[index].nome;
     conteudo.innerHTML = dias[index].horarios.map(h => {
         const [nome, horario] = h.split(" — ");
@@ -116,3 +92,5 @@ document.getElementById("next").onclick = ()=>{
 
 atualizar();
 renderCoordenadores();
+
+};
