@@ -1,143 +1,55 @@
-/* ================= BACKGROUND NEON ANIMADO ================= */
-
-body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  color: #fff;
-  overflow-x: hidden;
-  background: #000;
+<style>
+border: 1px solid rgba(255, 255, 255, 0.1);
+transition: transform .3s ease, box-shadow .3s ease;
+}
+.day-column:hover {
+transform: translateY(-5px);
+box-shadow: 0 0 15px #00eaff;
+}
+.day-column h2 {
+margin-bottom: 10px;
+text-align: center;
+color: #00eaff;
+}
+.coordinator {
+background: rgba(255, 255, 255, 0.08);
+padding: 10px;
+margin-bottom: 10px;
+border-radius: 8px;
+font-size: 0.9rem;
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.email-btn img {
+width: 26px;
+height: 26px;
+cursor: pointer;
+transition: 0.3s;
+}
+.email-btn img:hover {
+transform: scale(1.1);
 }
 
-.bg-neon {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: radial-gradient(circle at 20% 20%, #00eaff33, transparent),
-              radial-gradient(circle at 80% 80%, #ff00ff33, transparent),
-              radial-gradient(circle at 50% 50%, #00ff8833, transparent);
-  filter: blur(60px);
-  animation: neonMove 12s infinite alternate ease-in-out;
-  z-index: -1;
+
+/* Fundo neon animado */
+.bg-animation {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, #001f3f, #003366, #005f99, #0099cc, #00eaff);
+background-size: 400% 400%;
+animation: neonMove 12s ease infinite;
+z-index: 0;
 }
+
 
 @keyframes neonMove {
-  0% { transform: translate(0, 0) scale(1); }
-  50% { transform: translate(40px, -40px) scale(1.2); }
-  100% { transform: translate(-40px, 40px) scale(1); }
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
 }
+</style>
 
-/* ================= TÍTULO ================= */
-h1 {
-  text-align: center;
-  margin-top: 25px;
-  font-size: 28px;
-  letter-spacing: 1px;
-  text-shadow: 0 0 14px #00eaff;
-  animation: glowPulse 3s infinite ease-in-out;
-}
-
-@keyframes glowPulse {
-  0% { text-shadow: 0 0 10px #00eaff; }
-  50% { text-shadow: 0 0 25px #00eaff; }
-  100% { text-shadow: 0 0 10px #00eaff; }
-}
-
-/* ================= CONTAINER ================= */
-
-.container {
-  max-width: 1150px;
-  margin: 20px auto;
-  padding: 20px;
-  background: rgba(255,255,255,0.03);
-  border-radius: 16px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 0 25px rgba(0, 238, 255, 0.15);
-}
-
-/* ================= TABELA ================= */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  color: #fff;
-}
-
-thead th {
-  padding: 12px;
-  text-align: center;
-  font-size: 14px;
-  text-transform: uppercase;
-  background: rgba(255,255,255,0.08);
-  letter-spacing: 1px;
-}
-
-tbody td {
-  padding: 12px;
-  text-align: center;
-  vertical-align: top;
-}
-
-.cell-card {
-  background: rgba(255,255,255,0.05);
-  padding: 14px;
-  border-radius: 14px;
-  box-shadow: 0 0 18px #00eaff22;
-  transition: 0.25s ease;
-  backdrop-filter: blur(8px);
-}
-
-.cell-card:hover {
-  transform: translateY(-6px) scale(1.03);
-  box-shadow: 0 0 25px #00eaff55;
-}
-
-/* ================= TEXTOS ================= */
-
-.cell-name {
-  font-size: 15px;
-  font-weight: 700;
-  color: #00eaff;
-  text-shadow: 0 0 6px #00eaff;
-}
-
-.cell-hour {
-  display: block;
-  font-size: 13px;
-  opacity: 0.85;
-  margin-bottom: 10px;
-}
-
-/* ================= BOTÃO DE EMAIL (SÓ ÍCONE) ================= */
-
-.email-btn {
-  font-size: 20px;
-  text-decoration: none;
-  display: inline-flex;
-  width: 42px;
-  height: 42px;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 238, 255, 0.1);
-  border-radius: 10px;
-  color: #00eaff;
-  border: 1px solid #00eaff44;
-  transition: 0.25s ease;
-  box-shadow: inset 0 0 10px #00eaff33;
-}
-
-.email-btn:hover {
-  transform: scale(1.18);
-  background: #00eaff33;
-  box-shadow: 0 0 18px #00eaff;
-}
-
-/* ================= UPDATE INFO ================= */
-
-.update-info {
-  text-align: center;
-  margin-top: 10px;
-  opacity: 0.7;
-  font-size: 13px;
-}
