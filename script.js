@@ -26,12 +26,14 @@ const coordenadores = {
 
 let index = 0;
 
+// Botão de email
 function gerarBotaoEmail(nome) {
     const email = emails[nome];
     if (!email) return "";
     return `<a class="email-btn" href="mailto:${email}" title="Enviar email para ${nome}"><i class="fas fa-envelope"></i></a>`;
 }
 
+// Atualiza agenda
 function atualizar() {
     document.getElementById("dia-atual").innerText = dias[index].nome;
     document.getElementById("conteudo").innerHTML = dias[index].horarios.map(h => {
@@ -48,6 +50,7 @@ function atualizar() {
     }).join('');
 }
 
+// Renderiza coordenadores com ícones nos cursos
 function renderCoordenadores() {
     const container = document.getElementById("coordenadores");
     container.innerHTML = Object.keys(coordenadores).map(nome => {
@@ -60,7 +63,7 @@ function renderCoordenadores() {
                 </div>
                 <div class="cursos">
                     <ul>
-                        ${c.cursos.map(course => `<li>${course}</li>`).join('')}
+                        ${c.cursos.map(course => `<li><i class="fas fa-circle" style="font-size:8px; color:#007bff; margin-right:6px;"></i>${course}</li>`).join('')}
                     </ul>
                 </div>
             </div>
@@ -68,8 +71,10 @@ function renderCoordenadores() {
     }).join('');
 }
 
+// Botões de navegação
 document.getElementById("prev").onclick = () => { index = (index === 0) ? dias.length - 1 : index - 1; atualizar(); };
 document.getElementById("next").onclick = () => { index = (index === dias.length - 1) ? 0 : index + 1; atualizar(); };
 
+// Inicializa
 atualizar();
 renderCoordenadores();
