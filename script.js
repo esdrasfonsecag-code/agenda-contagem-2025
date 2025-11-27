@@ -57,51 +57,50 @@ const coordenadores = {
             "Negócios Imobiliários",
             "Processos Gerenciais / Processos Gerenciais (Semipresencial) 30/70"
         ]
+    },
+    "Daniel Portela Dias Machado": {
+        email: "daniel.portela@animaeducacao.com.br",
+        cursos: [
+            "Medicina Veterinária",
+            "Engenharia Civil",
+            "Engenharia Civil (Semipresencial) 30/70",
+            "Engenharia da Computação",
+            "Engenharia de Controle e Automação",
+            "Engenharia de Produção",
+            "Engenharia de Produção (Semipresencial) 30/70",
+            "Engenharia de Software",
+            "Engenharia Elétrica",
+            "Engenharia Elétrica (Semipresencial) 30/70",
+            "Engenharia Mecânica",
+            "Engenharia Mecânica (Semipresencial) 30/70",
+            "Jornalismo",
+            "Publicidade e Propaganda"
+        ]
+    },
+    "Elisa Carvalho de Siqueira": {
+        email: "elisa.siqueira@animaeducacao.com.br",
+        cursos: [
+            "Odontologia",
+            "Design de Interiores",
+            "Design Gráfico",
+            "Design Gráfico (Semipresencial) 30/70"
+        ]
+    },
+    "Elizabeth Rodrigues Brito Ibrahim": {
+        email: "elizabeth.ibrahim@animaeducacao.com.br",
+        cursos: [
+            "Arquitetura e Urbanismo",
+            "Farmácia",
+            "Farmácia (Semipresencial) 30/70",
+            "História",
+            "Pedagogia",
+            "Pedagogia (Semipresencial) 30/70"
+        ]
+    },
+    "Marcos Ferreira Benedito": {
+        email: "marcos.benedito@animaeducacao.com.br",
+        cursos: [
+            "Enfermagem"
+        ]
     }
-   "Daniel Portela Dias Machado": {
-    email: "daniel.portela@animaeducacao.com.br",
-    cursos: [
-        "Medicina Veterinária",
-        "Engenharia Civil",
-        "Engenharia Civil (Semipresencial) 30/70",
-        "Engenharia da Computação",
-        "Engenharia de Controle e Automação",
-        "Engenharia de Produção",
-        "Engenharia de Produção (Semipresencial) 30/70",
-        "Engenharia de Software",
-        "Engenharia Elétrica",
-        "Engenharia Elétrica (Semipresencial) 30/70",
-        "Engenharia Mecânica",
-        "Engenharia Mecânica (Semipresencial) 30/70",
-        "Jornalismo",
-        "Publicidade e Propaganda"
-    ]
-},
-"Elisa Carvalho de Siqueira": {
-    email: "elisa.siqueira@animaeducacao.com.br",
-    cursos: [
-        "Odontologia",
-        "Design de Interiores",
-        "Design Gráfico",
-        "Design Gráfico (Semipresencial) 30/70"
-    ]
-},
-"Elizabeth Rodrigues Brito Ibrahim": {
-    email: "elizabeth.ibrahim@animaeducacao.com.br",
-    cursos: [
-        "Arquitetura e Urbanismo",
-        "Farmácia",
-        "Farmácia (Semipresencial) 30/70",
-        "História",
-        "Pedagogia",
-        "Pedagogia (Semipresencial) 30/70"
-    ]
-},
-"Marcos Ferreira Benedito": {
-    email: "marcos.benedito@animaeducacao.com.br",
-    cursos: [
-        "Enfermagem"
-    ]
-}
-
 };
