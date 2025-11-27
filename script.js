@@ -1,78 +1,90 @@
-document.addEventListener("DOMContentLoaded", () => {
+<script>
+const data = {
+"SEGUNDA": [
+{ nome: "MARCOS FERREIRA BENEDITO", hora: "08:00 às 12:00", email: "marcos@example.com" },
+{ nome: "ANA PAULA DOS SANTOS GOMES", hora: "8:30 às 12:30", email: "anapaula@example.com" },
+{ nome: "CRISTINA CARVALHO DE MELO", hora: "11:40 às 13:40", email: "cristina@example.com" },
+{ nome: "CAMILLA AYALA FELISBERTO SILVA", hora: "13:00 às 17:00", email: "camilla@example.com" },
+{ nome: "ANA PAULA DOS SANTOS GOMES", hora: "13:00 às 15:00", email: "anapaula@example.com" },
+{ nome: "ELIZABETH RODRIGUES BRITO IBRAHIM", hora: "14:00 às 17:00", email: "elizabeth@example.com" },
+{ nome: "CRISTINA CARVALHO DE MELO", hora: "15:00 às 19:00", email: "cristina@example.com" },
+{ nome: "ELISA SIQUEIRA", hora: "14:00 às 21:00", email: "elisa@example.com" },
+{ nome: "MARCOS FERREIRA BENEDITO", hora: "16:00 às 21:00", email: "marcos@example.com" }
+],
 
-  const agenda = {
-    segunda: [
-      { nome: "Marcos Ferreira Benedito", hora: "08:00 — 12:00", email: "marcos.benedito@animaeducacao.com.br" },
-      { nome: "Ana Paula dos Santos Gomes", hora: "08:30 — 12:30", email: "ana.paula1@animaeducacao.com.br" },
-      { nome: "Cristina Carvalho de Melo", hora: "11:40 — 13:40", email: "cristina.melo@animaeducacao.com.br" },
-      { nome: "Camilla Ayala Felisberto Silva", hora: "13:00 — 17:00", email: "camilla.felisberto@animaeducacao.com.br" },
-      { nome: "Ana Paula dos Santos Gomes", hora: "13:00 — 15:00", email: "ana.paula1@animaeducacao.com.br" },
-      { nome: "Elizabeth Rodrigues Brito Ibrahim", hora: "14:00 — 17:00", email: "elizabeth.ibrahim@animaeducacao.com.br" },
-      { nome: "Cristina Carvalho de Melo", hora: "15:00 — 19:00", email: "cristina.melo@animaeducacao.com.br" },
-      { nome: "Elisa Carvalho de Siqueira", hora: "14:00 — 21:00", email: "elisa.siqueira@animaeducacao.com.br" },
-      { nome: "Marcos Ferreira Benedito", hora: "16:00 — 21:00", email: "marcos.benedito@animaeducacao.com.br" }
-    ],
 
-    terca: [
-      { nome: "Elizabeth Rodrigues Brito Ibrahim", hora: "13:00 — 17:00", email: "elizabeth.ibrahim@animaeducacao.com.br" },
-      { nome: "Ana Amelia Fonseca Viana Cruz", hora: "08:30 — 12:30", email: "ana.vicruz@ulife.com.br" },
-      { nome: "Ana Amelia Fonseca Viana Cruz", hora: "13:30 — 17:30", email: "ana.vicruz@ulife.com.br" },
-      { nome: "Ana Paula dos Santos Gomes", hora: "14:30 — 19:00", email: "ana.paula1@animaeducacao.com.br" },
-      { nome: "Marcos Ferreira Benedito", hora: "14:00 — 18:00", email: "marcos.benedito@animaeducacao.com.br" },
-      { nome: "Camilla Ayala Felisberto Silva", hora: "15:00 — 19:00", email: "camilla.felisberto@animaeducacao.com.br" },
-      { nome: "Elisa Carvalho de Siqueira", hora: "14:00 — 19:00", email: "elisa.siqueira@animaeducacao.com.br" },
-      { nome: "Daniel Portela Dias Machado", hora: "15:00 — 19:00", email: "daniel.portela@animaeducacao.com.br" },
-      { nome: "Cristina Carvalho de Melo", hora: "15:00 — 20:30", email: "cristina.melo@animaeducacao.com.br" }
-    ],
+"TERÇA": [
+{ nome: "ELIZABETH RODRIGUES BRITO IBRAHIM", hora: "13:00 às 17:00", email: "elizabeth@example.com" },
+{ nome: "ANA AMELIA FONSECA VIANA CRUZ", hora: "08:30 às 12:30", email: "anaamelia@example.com" },
+{ nome: "ANA AMELIA FONSECA VIANA CRUZ", hora: "13:30 às 17:30", email: "anaamelia@example.com" },
+{ nome: "ANA PAULA DOS SANTOS GOMES", hora: "14:30 às 19:00", email: "anapaula@example.com" },
+{ nome: "MARCOS FERREIRA BENEDITO", hora: "14:00 às 18:00", email: "marcos@example.com" },
+{ nome: "CAMILLA AYALA FELISBERTO SILVA", hora: "15:00 às 19:00", email: "camilla@example.com" },
+{ nome: "DANIEL PORTELA DIAS MACHADO", hora: "15:00 às 19:00", email: "daniel@example.com" },
+{ nome: "ELISA SIQUEIRA", hora: "14:00 às 19:00", email: "elisa@example.com" },
+{ nome: "CRISTINA CARVALHO DE MELO", hora: "15:00 às 20:30", email: "cristina@example.com" }
+],
 
-    quarta: [
-      { nome: "Elisa Carvalho de Siqueira", hora: "08:00 — 13:00", email: "elisa.siqueira@animaeducacao.com.br" },
-      { nome: "Marcos Ferreira Benedito", hora: "17:00 — 21:00", email: "marcos.benedito@animaeducacao.com.br" },
-      { nome: "Elizabeth Rodrigues Brito Ibrahim", hora: "17:00 — 21:00", email: "elizabeth.ibrahim@animaeducacao.com.br" }
-    ],
 
-    quinta: [
-      { nome: "Daniel Portela Dias Machado", hora: "08:00 — 12:00", email: "daniel.portela@animaeducacao.com.br" },
-      { nome: "Camilla Ayala Felisberto Silva", hora: "13:00 — 17:00", email: "camilla.felisberto@animaeducacao.com.br" },
-      { nome: "Daniel Portela Dias Machado", hora: "15:00 — 21:00", email: "daniel.portela@animaeducacao.com.br" },
-      { nome: "Ana Amelia Fonseca Viana Cruz", hora: "13:00 — 21:00", email: "ana.vicruz@ulife.com.br" },
-      { nome: "Elizabeth Rodrigues Brito Ibrahim", hora: "13:00 — 17:00", email: "elizabeth.ibrahim@animaeducacao.com.br" },
-      { nome: "Ana Paula dos Santos Gomes", hora: "15:30 — 21:00", email: "ana.paula1@animaeducacao.com.br" }
-    ],
+"QUARTA": [
+{ nome: "ELISA SIQUEIRA", hora: "08:00 às 13:00", email: "elisa@example.com" },
+{ nome: "MARCOS FERREIRA BENEDITO", hora: "17:00 às 21:00", email: "marcos@example.com" },
+{ nome: "ELIZABETH RODRIGUES BRITO IBRAHIM", hora: "17:00 às 21:00", email: "elizabeth@example.com" }
+],
 
-    sexta: [
-      { nome: "Camilla Ayala Felisberto Silva", hora: "09:00 — 13:00", email: "camilla.felisberto@animaeducacao.com.br" },
-      { nome: "Daniel Portela Dias Machado", hora: "17:00 — 19:00", email: "daniel.portela@animaeducacao.com.br" },
-      { nome: "Cristina Carvalho de Melo", hora: "14:30 — 19:00", email: "cristina.melo@animaeducacao.com.br" },
-      { nome: "Marcos Ferreira Benedito", hora: "17:00 — 19:00", email: "marcos.benedito@animaeducacao.com.br" },
-      { nome: "Elizabeth Rodrigues Brito Ibrahim", hora: "17:00 — 21:00", email: "elizabeth.ibrahim@animaeducacao.com.br" }
-    ]
-  };
 
-  const dayKeys = ["segunda", "terca", "quarta", "quinta", "sexta"];
-  const tbody = document.getElementById("agenda");
+"QUINTA": [
+{ nome: "DANIEL PORTELA DIAS MACHADO", hora: "08:00 às 12:00", email: "daniel@example.com" },
+{ nome: "CAMILLA AYALA FELISBERTO SILVA", hora: "13:00 às 17:00", email: "camilla@example.com" },
+{ nome: "ANA PAULA DOS SANTOS GOMES", hora: "15:30 às 21:00", email: "anapaula@example.com" },
+{ nome: "ANA AMELIA FONSECA VIANA CRUZ", hora: "13:00 às 21:00", email: "anaamelia@example.com" },
+{ nome: "DANIEL PORTELA DIAS MACHADO", hora: "15:00 às 21:00", email: "daniel@example.com" }
+],
 
-  const max = Math.max(...dayKeys.map(day => agenda[day].length));
-  let html = "";
 
-  for (let i = 0; i < max; i++) {
-    html += "<tr>";
-    dayKeys.forEach(day => {
-      const item = agenda[day][i];
-      if (!item) return html += "<td></td>";
+"SEXTA": [
+{ nome: "CAMILLA AYALA FELISBERTO SILVA", hora: "09:00 às 13:00", email: "camilla@example.com" },
+{ nome: "DANIEL PORTELA DIAS MACHADO", hora: "17:00 às 19:00", email: "daniel@example.com" },
+{ nome: "CRISTINA CARVALHO DE MELO", hora: "14:30 às 19:00", email: "cristina@example.com" },
+{ nome: "MARCOS FERREIRA BENEDITO", hora: "17:00 às 19:00", email: "marcos@example.com" },
+{ nome: "ELIZABETH RODRIGUES BRITO IBRAHIM", hora: "17:00 às 21:00", email: "elizabeth@example.com" }
+]
+};
 
-      html += `
-        <td>
-          <div class="cell-card">
-            <span class="cell-name">${item.nome}</span>
-            <span class="cell-hour">${item.hora}</span>
-            <a class="email-btn" href="mailto:${item.email}">📧</a>
-          </div>
-        </td>
-      `;
-    });
-    html += "</tr>";
-  }
 
-  tbody.innerHTML = html;
+const grid = document.getElementById("grid");
+
+
+Object.keys(data).forEach(day => {
+const column = document.createElement("div");
+column.className = "day-column";
+
+
+const title = document.createElement("h2");
+title.textContent = day;
+column.appendChild(title);
+
+
+data[day].forEach(item => {
+const div = document.createElement("div");
+div.className = "coordinator";
+
+
+div.innerHTML = `
+<div>
+<strong>${item.nome}</strong><br>
+<span>${item.hora}</span>
+</div>
+<a class="email-btn" href="mailto:${item.email}">
+<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" />
+</a>
+`;
+
+
+column.appendChild(div);
 });
+
+
+grid.appendChild(column);
+});
+</script>
