@@ -1,13 +1,11 @@
-/* Fundo NEON animado */
-.neon-bg {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: linear-gradient(45deg, #0ff, #00f, #f0f, #00f);
+/* ===== Fundo neon animado ===== */
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    background: linear-gradient(120deg, #000011, #000033, #001144, #000033, #000011);
     background-size: 400% 400%;
     animation: neonMove 12s infinite alternate;
-    z-index: -1;
-    filter: blur(40px);
 }
 
 @keyframes neonMove {
@@ -15,80 +13,78 @@
     100% { background-position: 100% 50%; }
 }
 
-/* Texto geral */
-body {
-    font-family: Arial, sans-serif;
-    color: #fff;
+/* ===== Layout principal ===== */
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1, h2 {
     text-align: center;
-    padding: 20px;
+    text-shadow: 0 0 10px #00eaff;
 }
 
-/* Cards */
-.card {
-    background: rgba(0,0,0,0.45);
-    padding: 20px;
-    margin-top: 25px;
-    border-radius: 15px;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(0,255,255,0.3);
-    box-shadow: 0 0 20px rgba(0,255,255,0.3);
-}
-
-/* Botões neon */
-.dias-container {
+.day-selector {
     display: flex;
     justify-content: center;
-    gap: 10px;
+    gap: 12px;
+    margin: 25px 0;
 }
 
-.dia-btn {
-    padding: 12px 20px;
-    border: none;
+/* ===== Botões neon ===== */
+.neon-btn {
+    padding: 12px 24px;
     border-radius: 10px;
+    border: 2px solid #00eaff;
     background: transparent;
-    color: white;
-    font-size: 18px;
+    color: #00eaff;
     cursor: pointer;
-    border: 2px solid #0ff;
-    box-shadow: 0 0 10px #0ff;
+    font-weight: 600;
+    transition: 0.3s;
+    text-shadow: 0 0 8px #00eaff;
+}
+
+.neon-btn:hover,
+.neon-btn.active {
+    background: #00eaff;
+    color: #000;
+    box-shadow: 0 0 20px #00eaff;
+}
+
+/* ===== Cards dos coordenadores ===== */
+.coordinator-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid #00eaff55;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 0 10px #00eaff44;
+    animation: fade 0.4s ease;
+}
+
+@keyframes fade {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== Ícone de email ===== */
+.email-icon {
+    width: 30px;
+    cursor: pointer;
+    filter: drop-shadow(0 0 6px #00eaff);
     transition: 0.3s;
 }
 
-.dia-btn:hover {
-    background: #0ff;
-    color: #000;
-    box-shadow: 0 0 20px #0ff;
+.email-icon:hover {
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 10px #00eaff);
 }
 
-/* Itens da escala */
-.esc-item {
-    background: rgba(255,255,255,0.1);
-    border-left: 4px solid cyan;
-    padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    text-align: left;
-}
-
-/* Coordenadores */
-.coord-box {
-    background: rgba(255,255,255,0.1);
-    padding: 15px;
-    margin: 12px 0;
-    border-radius: 12px;
-    border-left: 4px solid magenta;
-}
-
-/* Botão ícone de email */
-.email-btn {
-    float: right;
-    font-size: 24px;
-    cursor: pointer;
-    color: cyan;
-    text-shadow: 0 0 10px cyan;
-    transform: translateY(-5px);
-}
-.email-btn:hover {
-    color: #fff;
-    text-shadow: 0 0 20px #fff;
+/* Cursos */
+.course-list {
+    margin-top: 10px;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    opacity: 0.9;
 }
