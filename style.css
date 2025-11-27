@@ -1,156 +1,84 @@
-/* Reset e fonte */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
     padding: 20px;
-    min-height: 100vh;
-    color: #222;
-    background: linear-gradient(-45deg, #84fab0, #8fd3f4, #a6c0fe, #fbc2eb);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
     text-align: center;
+    color: #333;
 }
 
-/* Gradiente animado */
-@keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-/* Títulos */
-h1, .section-title {
-    color: #222;
+h1, h2 {
     margin-bottom: 20px;
 }
 
-.section-title {
-    margin-top: 40px;
-    font-size: 1.8em;
-}
-
-/* Botões de dias */
 .controls {
     margin-bottom: 20px;
 }
 
-.day-btn {
-    padding: 12px 20px;
-    margin: 0 10px;
+button {
+    padding: 10px 20px;
+    margin: 0 10px 20px 10px;
     cursor: pointer;
-    border-radius: 10px;
+    border-radius: 8px;
     border: none;
     background: #007bff;
-    color: #fff;
+    color: white;
     font-size: 16px;
-    font-weight: 600;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: 0.2s;
 }
 
-.day-btn i {
-    margin: 0 5px;
-}
-
-.day-btn:hover {
+button:hover {
     background: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* Dia atual */
-.dia-atual {
-    font-size: 1.8em;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-/* Cards container */
-.cards-container {
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-}
-
-/* Cards da agenda e coordenadores */
-.card {
-    background: rgba(255,255,255,0.95);
-    padding: 15px 20px;
-    margin: 12px 0;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+.agenda, .coordenadores {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    transition: transform 0.2s, box-shadow 0.2s;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
 }
 
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* Informações do card */
-.card-info {
+.card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
     text-align: left;
 }
 
-.card-info .nome {
+.card-info {
+    display: flex;
+    justify-content: space-between;
     font-weight: bold;
-    font-size: 1.1em;
 }
 
-.card-info .horario {
-    font-size: 1em;
-    color: #555;
-    margin-top: 2px;
+.nome {
+    font-size: 16px;
 }
 
-.card-info .email a {
-    color: #007bff;
-    text-decoration: none;
+.horario, .email {
+    font-size: 14px;
+    font-weight: normal;
 }
 
-.card-info .email a:hover {
-    text-decoration: underline;
-}
-
-/* Botão de email */
 .email-btn {
     display: inline-block;
-    font-size: 1.2em;
-    color: #fff;
+    margin-top: 8px;
+    padding: 5px 10px;
     background: #28a745;
-    padding: 10px 14px;
-    border-radius: 50%;
-    transition: 0.3s;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: 14px;
 }
 
 .email-btn:hover {
-    background: #218838;
-    transform: scale(1.1);
+    background: #1e7e34;
 }
 
-/* Cursos list */
-.cursos ul {
+.cursos {
     list-style-type: disc;
-    text-align: left;
     padding-left: 20px;
-    margin: 10px 0 0 0;
-}
-
-.cursos li {
-    margin-bottom: 5px;
-}
-
-/* Responsividade */
-@media screen and (max-width: 700px) {
-    .card {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    .day-btn {
-        margin: 10px 5px;
-        width: 48%;
-    }
+    margin-top: 5px;
 }
