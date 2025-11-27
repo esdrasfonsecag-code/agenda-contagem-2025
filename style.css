@@ -79,7 +79,7 @@ h1, .section-title {
     border-radius: 15px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.2);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -90,29 +90,20 @@ h1, .section-title {
     box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 }
 
-/* Colunas dentro do card */
+/* Informações do card */
 .card-info {
-    flex: 1 1 35%;
     text-align: left;
-    margin: 5px;
 }
 
-.cursos {
-    flex: 1 1 60%;
-    text-align: left;
-    margin: 5px;
-}
-
-/* Nome e email */
 .card-info .nome {
     font-weight: bold;
     font-size: 1.1em;
 }
 
-.card-info .email {
-    font-size: 0.95em;
+.card-info .horario {
+    font-size: 1em;
     color: #555;
-    margin-top: 4px;
+    margin-top: 2px;
 }
 
 .card-info .email a {
@@ -124,33 +115,6 @@ h1, .section-title {
     text-decoration: underline;
 }
 
-/* Cursos */
-.cursos ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.cursos li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-    line-height: 1.4em;
-    transition: transform 0.2s, color 0.2s;
-    cursor: default;
-}
-
-.cursos li i {
-    margin-right: 8px;
-    color: #007bff;
-}
-
-/* Hover nos cursos */
-.cursos li:hover {
-    color: #0056b3;
-    transform: translateX(3px);
-}
-
 /* Botão de email */
 .email-btn {
     display: inline-block;
@@ -160,7 +124,6 @@ h1, .section-title {
     padding: 10px 14px;
     border-radius: 50%;
     transition: 0.3s;
-    margin-left: 10px;
 }
 
 .email-btn:hover {
@@ -168,14 +131,26 @@ h1, .section-title {
     transform: scale(1.1);
 }
 
+/* Cursos list */
+.cursos ul {
+    list-style-type: disc;
+    text-align: left;
+    padding-left: 20px;
+    margin: 10px 0 0 0;
+}
+
+.cursos li {
+    margin-bottom: 5px;
+}
+
 /* Responsividade */
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 700px) {
     .card {
         flex-direction: column;
         align-items: flex-start;
     }
-    .card-info, .cursos {
-        flex: 1 1 100%;
-        margin: 5px 0;
+    .day-btn {
+        margin: 10px 5px;
+        width: 48%;
     }
 }
