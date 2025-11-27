@@ -1,119 +1,143 @@
-:root{
-  --bg1:#0d1117;
-  --bg2:#161b22;
-  --card-bg: rgba(255,255,255,0.04);
-  --accent: #00c3ff;
+/* ================= BACKGROUND NEON ANIMADO ================= */
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: #fff;
+  overflow-x: hidden;
+  background: #000;
 }
 
-*{box-sizing:border-box}
-body{
-  margin:0;
-  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
-  background: linear-gradient(135deg,var(--bg1),var(--bg2));
-  color:#fff;
-  min-height:100vh;
-  padding:28px 16px;
+.bg-neon {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at 20% 20%, #00eaff33, transparent),
+              radial-gradient(circle at 80% 80%, #ff00ff33, transparent),
+              radial-gradient(circle at 50% 50%, #00ff8833, transparent);
+  filter: blur(60px);
+  animation: neonMove 12s infinite alternate ease-in-out;
+  z-index: -1;
 }
 
-h1{
-  text-align:center;
-  margin:6px 0 18px;
-  font-size:22px;
-  letter-spacing:1px;
+@keyframes neonMove {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(40px, -40px) scale(1.2); }
+  100% { transform: translate(-40px, 40px) scale(1); }
 }
 
-.container{
-  max-width:1100px;
-  margin:0 auto;
-  background:var(--card-bg);
-  border-radius:12px;
-  padding:18px;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+/* ================= TÍTULO ================= */
+h1 {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 28px;
+  letter-spacing: 1px;
+  text-shadow: 0 0 14px #00eaff;
+  animation: glowPulse 3s infinite ease-in-out;
 }
 
-table{
-  width:100%;
-  border-collapse:collapse;
-  table-layout:fixed;
-  font-size:15px;
+@keyframes glowPulse {
+  0% { text-shadow: 0 0 10px #00eaff; }
+  50% { text-shadow: 0 0 25px #00eaff; }
+  100% { text-shadow: 0 0 10px #00eaff; }
 }
 
-thead th{
-  background: rgba(255,255,255,0.06);
-  padding:12px 8px;
-  text-transform:uppercase;
-  font-weight:600;
-  letter-spacing:0.6px;
-  text-align:center;
-}
+/* ================= CONTAINER ================= */
 
-tbody td{
-  padding:12px 8px;
-  border-bottom: 1px solid rgba(255,255,255,0.03);
-  vertical-align:top;
-  text-align:center;
-}
-
-.cell-card{
-  display:inline-block;
-  width:100%;
-  padding:8px 10px;
-  border-radius:10px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-
-.cell-card:hover{
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
-}
-
-.cell-name{
-  font-weight:700;
-  display:block;
-  margin-bottom:6px;
-  font-size:15px;
-}
-
-.cell-hour{
-  color: #d0d7de;
-  font-size:14px;
-  margin-bottom:8px;
-}
-
-/* botão de e-mail (emoji) */
-.email-btn{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  width:36px;
-  height:36px;
-  border-radius:10px;
+.container {
+  max-width: 1150px;
+  margin: 20px auto;
+  padding: 20px;
   background: rgba(255,255,255,0.03);
-  color:var(--accent);
-  font-size:18px;
-  text-decoration:none;
-  transition: transform .18s ease, box-shadow .18s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 0 6px rgba(255,255,255,0.02);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 0 25px rgba(0, 238, 255, 0.15);
 }
 
-.email-btn:hover{
-  transform:scale(1.18);
-  box-shadow: 0 10px 28px rgba(0,0,0,0.6), 0 0 12px rgba(0,195,255,0.12);
+/* ================= TABELA ================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #fff;
 }
 
-.update-info{
-  text-align:center;
-  opacity:0.8;
-  margin-top:12px;
-  font-size:13px;
+thead th {
+  padding: 12px;
+  text-align: center;
+  font-size: 14px;
+  text-transform: uppercase;
+  background: rgba(255,255,255,0.08);
+  letter-spacing: 1px;
 }
 
-@media (max-width:760px){
-  thead th{ font-size:12px; padding:10px 6px; }
-  tbody td{ font-size:13px; padding:10px 6px; }
-  .cell-name{ font-size:14px; }
-  .cell-hour{ font-size:13px; }
+tbody td {
+  padding: 12px;
+  text-align: center;
+  vertical-align: top;
+}
+
+.cell-card {
+  background: rgba(255,255,255,0.05);
+  padding: 14px;
+  border-radius: 14px;
+  box-shadow: 0 0 18px #00eaff22;
+  transition: 0.25s ease;
+  backdrop-filter: blur(8px);
+}
+
+.cell-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 0 25px #00eaff55;
+}
+
+/* ================= TEXTOS ================= */
+
+.cell-name {
+  font-size: 15px;
+  font-weight: 700;
+  color: #00eaff;
+  text-shadow: 0 0 6px #00eaff;
+}
+
+.cell-hour {
+  display: block;
+  font-size: 13px;
+  opacity: 0.85;
+  margin-bottom: 10px;
+}
+
+/* ================= BOTÃO DE EMAIL (SÓ ÍCONE) ================= */
+
+.email-btn {
+  font-size: 20px;
+  text-decoration: none;
+  display: inline-flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 238, 255, 0.1);
+  border-radius: 10px;
+  color: #00eaff;
+  border: 1px solid #00eaff44;
+  transition: 0.25s ease;
+  box-shadow: inset 0 0 10px #00eaff33;
+}
+
+.email-btn:hover {
+  transform: scale(1.18);
+  background: #00eaff33;
+  box-shadow: 0 0 18px #00eaff;
+}
+
+/* ================= UPDATE INFO ================= */
+
+.update-info {
+  text-align: center;
+  margin-top: 10px;
+  opacity: 0.7;
+  font-size: 13px;
 }
