@@ -1,3 +1,4 @@
+/* mantém fundo animado, botões e cards do site original */
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
     background: linear-gradient(-45deg, #6a11cb, #2575fc, #ff416c, #ff4b2b);
@@ -7,7 +8,6 @@ body {
     text-align: center;
     color: #fff;
     min-height: 100vh;
-    transition: background 0.5s ease;
 }
 
 @keyframes gradientBG {
@@ -16,7 +16,7 @@ body {
     100% {background-position: 0% 50%;}
 }
 
-h1 {
+h1, .section-title {
     margin-bottom: 20px;
     font-weight: 600;
     color: #fff;
@@ -26,14 +26,13 @@ h1 {
     font-size: 26px;
     font-weight: bold;
     margin-bottom: 15px;
-    color: #fff;
 }
 
 .controls {
     margin-bottom: 25px;
 }
 
-/* Botões de dia modernos */
+/* Botões */
 .day-btn {
     padding: 12px 25px;
     margin: 5px;
@@ -51,27 +50,18 @@ h1 {
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
 }
 
-.day-btn i {
-    font-size: 16px;
-}
-
 .day-btn:hover {
     transform: translateY(-3px) scale(1.05);
     box-shadow: 0 8px 20px rgba(0,0,0,0.25);
     background: linear-gradient(135deg, #2575fc, #6a11cb);
 }
 
-.day-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(38, 115, 255, 0.4);
-}
-
 /* Cards */
 .cards-container {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    max-width: 700px;
+    gap: 16px;
+    max-width: 900px;
     margin: 0 auto;
 }
 
@@ -81,7 +71,8 @@ h1 {
     border-radius: 14px;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    flex-wrap: wrap;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -95,26 +86,36 @@ h1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
     width: 100%;
-    margin-right: 10px;
+    margin-bottom: 10px;
 }
 
-.nome {
+.card-info .nome {
     font-weight: 600;
     font-size: 18px;
-    margin: 0;
-    text-align: left;
     color: #222;
+    margin: 0;
 }
 
-.horario {
+.card-info .horario {
     font-size: 15px;
     color: #555;
-    margin: 0;
     text-align: right;
+    margin: 0;
 }
 
-/* Botão de email */
+.card-info .email a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.card-info .email a:hover {
+    text-decoration: underline;
+}
+
+/* Botão email */
 .email-btn {
     display: inline-flex;
     align-items: center;
@@ -132,4 +133,17 @@ h1 {
 .email-btn:hover {
     background: #0056b3;
     transform: scale(1.2);
+}
+
+/* Cursos na lista */
+.cursos ul {
+    padding-left: 20px;
+    margin: 0;
+    list-style-type: disc;
+    color: #555;
+}
+
+.cursos ul li {
+    margin-bottom: 4px;
+    font-size: 14px;
 }
