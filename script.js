@@ -68,7 +68,7 @@ const dias = [
 
 let index = 0;
 
-// Função para criar botão de email com ícone
+// Botão de email com ícone
 function gerarBotaoEmail(nome) {
     const email = emails[nome];
     if (!email) return "";
@@ -79,7 +79,7 @@ function gerarBotaoEmail(nome) {
     `;
 }
 
-// Função para atualizar conteúdo da agenda
+// Atualiza a agenda na tela
 function atualizar() {
     document.getElementById("dia-atual").innerText = dias[index].nome;
 
