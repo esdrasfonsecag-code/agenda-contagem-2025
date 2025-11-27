@@ -1,107 +1,84 @@
-const coordenadores = {
-    "Ana Amelia Fonseca Viana Cruz": {
-        email: "ana.vicruz@ulife.com.br",
-        cursos: [
-            "Biomedicina",
-            "Biomedicina (Semipresencial) 30/70",
-            "Fisioterapia",
-            "Fisioterapia (Semipresencial) 30/70",
-            "Estética e Cosmética",
-            "Estética e Cosmética (Semipresencial) 30/70"
-        ]
-    },
-    "Ana Paula dos Santos Gomes": {
-        email: "ana.paula1@animaeducacao.com.br",
-        cursos: [
-            "Nutrição",
-            "Nutrição (Semipresencial) 30/70",
-            "Psicologia"
-        ]
-    },
-    "Camilla Ayala Felisberto Silva": {
-        email: "camilla.felisberto@animaeducacao.com.br",
-        cursos: [
-            "Análise e Desenvolvimento de Sistemas",
-            "Análise e Desenvolvimento de Sistemas (Semipresencial) 30/70",
-            "Ciência da Computação (Semipresencial) 30/70",
-            "Ciências da Computação",
-            "Direito",
-            "Sistemas de Informação",
-            "Sistemas de Informação (Semipresencial) 30/70"
-        ]
-    },
-    "Cristina Carvalho de Melo": {
-        email: "cristina.melo@animaeducacao.com.br",
-        cursos: [
-            "Administração / Administração (Semipresencial) 30/70",
-            "Ciências Contábeis / Ciências Contábeis (Semipresencial) 30/70",
-            "Ciências Econômicas / Ciências Econômicas (Semipresencial) 30/70",
-            "Comércio Exterior",
-            "Educação física / Educação Física (Semipresencial) 30/70",
-            "Gestão Comercial",
-            "Gestão Comercial (Semipresencial) 30/70",
-            "Gestão da Inovação e Empreendedorismo Digital",
-            "Gestão da Produção Industrial",
-            "Gestão da Qualidade",
-            "Gestão da Qualidade (Semipresencial) 30/70",
-            "Gestão da Tecnologia da Informação / Gestão da Tecnologia da Informação (Semipresencial) 30/70",
-            "Gestão de Processos e Projetos Ágeis",
-            "Gestão de Recursos Humanos / Gestão de Recursos Humanos (Semipresencial) 30/70",
-            "Gestão Financeira / Gestão Financeira (Semipresencial) 30/70",
-            "Gestão Pública (Semipresencial) 30/70",
-            "Governança Corporativa e Consultoria de Negócios",
-            "Investimento e formação de Traders",
-            "Logística / Logística (Semipresencial) 30/70",
-            "Marketing / Marketing (Semipresencial) 30/70",
-            "Marketing Digital",
-            "Negócios Imobiliários",
-            "Processos Gerenciais / Processos Gerenciais (Semipresencial) 30/70"
-        ]
-    },
-    "Daniel Portela Dias Machado": {
-        email: "daniel.portela@animaeducacao.com.br",
-        cursos: [
-            "Medicina Veterinária",
-            "Engenharia Civil",
-            "Engenharia Civil (Semipresencial) 30/70",
-            "Engenharia da Computação",
-            "Engenharia de Controle e Automação",
-            "Engenharia de Produção",
-            "Engenharia de Produção (Semipresencial) 30/70",
-            "Engenharia de Software",
-            "Engenharia Elétrica",
-            "Engenharia Elétrica (Semipresencial) 30/70",
-            "Engenharia Mecânica",
-            "Engenharia Mecânica (Semipresencial) 30/70",
-            "Jornalismo",
-            "Publicidade e Propaganda"
-        ]
-    },
-    "Elisa Carvalho de Siqueira": {
-        email: "elisa.siqueira@animaeducacao.com.br",
-        cursos: [
-            "Odontologia",
-            "Design de Interiores",
-            "Design Gráfico",
-            "Design Gráfico (Semipresencial) 30/70"
-        ]
-    },
-    "Elizabeth Rodrigues Brito Ibrahim": {
-        email: "elizabeth.ibrahim@animaeducacao.com.br",
-        cursos: [
-            "Arquitetura e Urbanismo",
-            "Farmácia",
-            "Farmácia (Semipresencial) 30/70",
-            "História",
-            "Pedagogia",
-            "Pedagogia (Semipresencial) 30/70"
-        ]
-    },
-    "Marcos Ferreira Benedito": {
-        email: "marcos.benedito@animaeducacao.com.br",
-        cursos: [
-            "Enfermagem"
-        ]
-    }
-};
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
 
+h1, h2 {
+    margin-bottom: 20px;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 0 10px 20px 10px;
+    cursor: pointer;
+    border-radius: 8px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 16px;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+.agenda, .coordenadores {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 900px;
+    margin: 0 auto 40px auto;
+}
+
+.card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    text-align: left;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.nome {
+    font-size: 16px;
+}
+
+.horario, .email {
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.email-btn {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 5px 10px;
+    background: #28a745;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: 0.2s;
+    font-size: 14px;
+}
+
+.email-btn:hover {
+    background: #1e7e34;
+}
+
+.cursos {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin-top: 5px;
+}
