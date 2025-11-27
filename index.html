@@ -2,38 +2,30 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Agenda dos Coordenadores — 2025</title>
+    <title>Agenda dos Coordenadores — UNA 2025</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class="neon-bg"></div>
+<div class="container">
 
-    <header>
-        <h1>Agenda dos Coordenadores — 2025</h1>
-        <h2>UNA Contagem</h2>
-        <p id="dataAtual"></p>
-    </header>
+    <h1>Agenda dos Coordenadores — 2025</h1>
+    <h2>UNA</h2>
 
-    <main>
-        <section class="dias-container">
-            <button class="dia-btn" data-dia="SEGUNDA">Seg</button>
-            <button class="dia-btn" data-dia="TERÇA">Ter</button>
-            <button class="dia-btn" data-dia="QUARTA">Qua</button>
-            <button class="dia-btn" data-dia="QUINTA">Qui</button>
-            <button class="dia-btn" data-dia="SEXTA">Sex</button>
-        </section>
+    <div class="day-selector">
+        <button class="neon-btn" onclick="changeDay('Segunda')">Seg</button>
+        <button class="neon-btn" onclick="changeDay('Terça')">Ter</button>
+        <button class="neon-btn" onclick="changeDay('Quarta')">Qua</button>
+        <button class="neon-btn" onclick="changeDay('Quinta')">Qui</button>
+        <button class="neon-btn" onclick="changeDay('Sexta')">Sex</button>
+    </div>
 
-        <section id="escala" class="card">
-            <h3>Escala do Dia</h3>
-            <div id="listaEscala"></div>
-        </section>
+    <h2 id="dayTitle">Selecione um dia</h2>
 
-        <section id="coordenadores" class="card">
-            <h3>Coordenadores & Cursos</h3>
-            <div id="listaCoordenadores"></div>
-        </section>
-    </main>
+    <div id="coordinatorContainer"></div>
 
-    <script src="script.js"></script>
+</div>
+
+<script src="script.js"></script>
 </body>
 </html>
