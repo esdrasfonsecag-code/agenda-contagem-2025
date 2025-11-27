@@ -1,68 +1,39 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Agenda & Coordenadores — 2025</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Agenda dos Coordenadores — 2025</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- neon background layer -->
-  <div class="neon-bg" aria-hidden="true"></div>
+    <div class="neon-bg"></div>
 
-  <header class="topbar">
-    <div class="title-wrap">
-      <h1>Agenda dos Coordenadores — 2025</h1>
-      <div id="now" class="now" aria-live="polite"></div>
-    </div>
-  </header>
+    <header>
+        <h1>Agenda dos Coordenadores — 2025</h1>
+        <h2>UNA Contagem</h2>
+        <p id="dataAtual"></p>
+    </header>
 
-  <main class="layout">
-    <!-- left panel: day controls -->
-    <aside class="left-panel" aria-label="Controle de dias">
-      <div class="sidebar-brand">  
-        <div class="logo-glass">UNA</div>
-      </div>
+    <main>
+        <section class="dias-container">
+            <button class="dia-btn" data-dia="SEGUNDA">Seg</button>
+            <button class="dia-btn" data-dia="TERÇA">Ter</button>
+            <button class="dia-btn" data-dia="QUARTA">Qua</button>
+            <button class="dia-btn" data-dia="QUINTA">Qui</button>
+            <button class="dia-btn" data-dia="SEXTA">Sex</button>
+        </section>
 
-      <nav class="day-nav" role="navigation" aria-label="Dias da semana">
-        <button id="prevDay" class="nav-ctrl" title="Dia anterior">⟨</button>
+        <section id="escala" class="card">
+            <h3>Escala do Dia</h3>
+            <div id="listaEscala"></div>
+        </section>
 
-        <div class="day-buttons" role="tablist" aria-label="Selecione o dia">
-          <button class="day-btn active" data-day="0" role="tab">Seg</button>
-          <button class="day-btn" data-day="1" role="tab">Ter</button>
-          <button class="day-btn" data-day="2" role="tab">Qua</button>
-          <button class="day-btn" data-day="3" role="tab">Qui</button>
-          <button class="day-btn" data-day="4" role="tab">Sex</button>
-        </div>
+        <section id="coordenadores" class="card">
+            <h3>Coordenadores & Cursos</h3>
+            <div id="listaCoordenadores"></div>
+        </section>
+    </main>
 
-        <button id="nextDay" class="nav-ctrl" title="Próximo dia">⟩</button>
-      </nav>
-
-      <div class="legend">
-        <small>Botões com efeito neon — clique para mudar o dia e ver a escala</small>
-      </div>
-    </aside>
-
-    <!-- right/main panel: schedule + coordenadores -->
-    <section class="main-panel">
-      <!-- schedule for selected day -->
-      <section class="schedule card" aria-label="Agenda do dia">
-        <h2 class="section-title">Escala do Dia</h2>
-        <div id="scheduleList" class="schedule-list" role="list"></div>
-      </section>
-
-      <!-- coordinators & courses -->
-      <section class="coordinators card" aria-label="Coordenadores e cursos">
-        <h2 class="section-title">Coordenadores & Cursos</h2>
-        <div id="coordinatorGrid" class="coord-grid" role="list"></div>
-      </section>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <small>Design futurista • Neon • Ícone de e-mail abre o cliente (mailto:)</small>
-  </footer>
-
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
