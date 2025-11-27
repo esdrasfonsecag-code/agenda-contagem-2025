@@ -1,23 +1,35 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Agenda dos Coordenadores — 2025</title>
-<link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda dos Coordenadores — 2025</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div class="bg-animation"></div>
 
+<div class="bg-animated"></div>
 
 <header>
-<h1>Agenda dos Coordenadores — 2025</h1>
-<p class="updated">Atualizado em: 23/10/2025</p>
+    <h1>Agenda dos Coordenadores — 2025</h1>
+    <p id="date-time"></p>
 </header>
 
+<section class="week-navigation">
+    <button id="prev-day" class="nav-btn">⟵</button>
 
-<section id="grid"></section>
+    <div class="day-buttons">
+        <button class="day-btn" data-day="0">SEGUNDA</button>
+        <button class="day-btn" data-day="1">TERÇA</button>
+        <button class="day-btn" data-day="2">QUARTA</button>
+        <button class="day-btn" data-day="3">QUINTA</button>
+        <button class="day-btn" data-day="4">SEXTA</button>
+    </div>
 
+    <button id="next-day" class="nav-btn">⟶</button>
+</section>
+
+<section id="coordinator-list"></section>
 
 <script src="script.js"></script>
 </body>
