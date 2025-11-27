@@ -4,24 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agenda Contagem 2025</title>
-    <!-- Link para Font Awesome (ícones) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1>Agenda dos Coordenadores — 2025</h1>
 
+    <!-- Seção da agenda -->
     <div class="controls">
-        <button id="prev" class="day-btn"><i class="fas fa-arrow-left"></i> Dia Anterior</button>
-        <button id="next" class="day-btn">Próximo Dia <i class="fas fa-arrow-right"></i></button>
+        <button id="prev">Dia Anterior</button>
+        <button id="next">Próximo Dia</button>
     </div>
+    <div id="dia-atual"></div>
+    <div id="conteudo"></div>
 
-    <div id="dia-atual" class="dia-atual"></div>
-
-    <div id="conteudo" class="cards-container"></div>
-
-    <h2 class="section-title">Coordenadores e Cursos</h2>
-    <div id="coordenadores" class="cards-container"></div>
+    <!-- Seção dos coordenadores e cursos -->
+    <h2>Coordenadores e Cursos</h2>
+    <div id="coordenadores"></div>
 
     <script src="script.js"></script>
 </body>
