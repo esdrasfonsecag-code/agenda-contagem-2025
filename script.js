@@ -1,90 +1,181 @@
-<script>
-const data = {
-"SEGUNDA": [
-{ nome: "MARCOS FERREIRA BENEDITO", hora: "08:00 às 12:00", email: "marcos@example.com" },
-{ nome: "ANA PAULA DOS SANTOS GOMES", hora: "8:30 às 12:30", email: "anapaula@example.com" },
-{ nome: "CRISTINA CARVALHO DE MELO", hora: "11:40 às 13:40", email: "cristina@example.com" },
-{ nome: "CAMILLA AYALA FELISBERTO SILVA", hora: "13:00 às 17:00", email: "camilla@example.com" },
-{ nome: "ANA PAULA DOS SANTOS GOMES", hora: "13:00 às 15:00", email: "anapaula@example.com" },
-{ nome: "ELIZABETH RODRIGUES BRITO IBRAHIM", hora: "14:00 às 17:00", email: "elizabeth@example.com" },
-{ nome: "CRISTINA CARVALHO DE MELO", hora: "15:00 às 19:00", email: "cristina@example.com" },
-{ nome: "ELISA SIQUEIRA", hora: "14:00 às 21:00", email: "elisa@example.com" },
-{ nome: "MARCOS FERREIRA BENEDITO", hora: "16:00 às 21:00", email: "marcos@example.com" }
-],
+// ==== DATA ATUAL ====
+function updateDateTime() {
+    const now = new Date();
+    const format = now.toLocaleString("pt-BR", {
+        weekday: "long",
+        day: "2-digit",
+        month: "2-digit",
+        year: "numeric",
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+    document.getElementById("date-time").textContent = format;
+}
+setInterval(updateDateTime, 1000);
+updateDateTime();
 
-
-"TERÇA": [
-{ nome: "ELIZABETH RODRIGUES BRITO IBRAHIM", hora: "13:00 às 17:00", email: "elizabeth@example.com" },
-{ nome: "ANA AMELIA FONSECA VIANA CRUZ", hora: "08:30 às 12:30", email: "anaamelia@example.com" },
-{ nome: "ANA AMELIA FONSECA VIANA CRUZ", hora: "13:30 às 17:30", email: "anaamelia@example.com" },
-{ nome: "ANA PAULA DOS SANTOS GOMES", hora: "14:30 às 19:00", email: "anapaula@example.com" },
-{ nome: "MARCOS FERREIRA BENEDITO", hora: "14:00 às 18:00", email: "marcos@example.com" },
-{ nome: "CAMILLA AYALA FELISBERTO SILVA", hora: "15:00 às 19:00", email: "camilla@example.com" },
-{ nome: "DANIEL PORTELA DIAS MACHADO", hora: "15:00 às 19:00", email: "daniel@example.com" },
-{ nome: "ELISA SIQUEIRA", hora: "14:00 às 19:00", email: "elisa@example.com" },
-{ nome: "CRISTINA CARVALHO DE MELO", hora: "15:00 às 20:30", email: "cristina@example.com" }
-],
-
-
-"QUARTA": [
-{ nome: "ELISA SIQUEIRA", hora: "08:00 às 13:00", email: "elisa@example.com" },
-{ nome: "MARCOS FERREIRA BENEDITO", hora: "17:00 às 21:00", email: "marcos@example.com" },
-{ nome: "ELIZABETH RODRIGUES BRITO IBRAHIM", hora: "17:00 às 21:00", email: "elizabeth@example.com" }
-],
-
-
-"QUINTA": [
-{ nome: "DANIEL PORTELA DIAS MACHADO", hora: "08:00 às 12:00", email: "daniel@example.com" },
-{ nome: "CAMILLA AYALA FELISBERTO SILVA", hora: "13:00 às 17:00", email: "camilla@example.com" },
-{ nome: "ANA PAULA DOS SANTOS GOMES", hora: "15:30 às 21:00", email: "anapaula@example.com" },
-{ nome: "ANA AMELIA FONSECA VIANA CRUZ", hora: "13:00 às 21:00", email: "anaamelia@example.com" },
-{ nome: "DANIEL PORTELA DIAS MACHADO", hora: "15:00 às 21:00", email: "daniel@example.com" }
-],
-
-
-"SEXTA": [
-{ nome: "CAMILLA AYALA FELISBERTO SILVA", hora: "09:00 às 13:00", email: "camilla@example.com" },
-{ nome: "DANIEL PORTELA DIAS MACHADO", hora: "17:00 às 19:00", email: "daniel@example.com" },
-{ nome: "CRISTINA CARVALHO DE MELO", hora: "14:30 às 19:00", email: "cristina@example.com" },
-{ nome: "MARCOS FERREIRA BENEDITO", hora: "17:00 às 19:00", email: "marcos@example.com" },
-{ nome: "ELIZABETH RODRIGUES BRITO IBRAHIM", hora: "17:00 às 21:00", email: "elizabeth@example.com" }
-]
+// ======== BASE DE DADOS ========
+const coordinatorData = {
+    "ANA PAULA DOS SANTOS GOMES": {
+        email: "ana.paula1@animaeducacao.com.br",
+        courses: [
+            "Nutrição",
+            "Nutrição (Semipresencial 30/70)",
+            "Psicologia"
+        ]
+    },
+    "CAMILLA AYALA FELISBERTO SILVA": {
+        email: "camilla.felisberto@animaeducacao.com.br",
+        courses: [
+            "Análise e Desenvolvimento de Sistemas",
+            "Análise e Desenvolvimento de Sistemas 30/70",
+            "Ciência da Computação",
+            "Direito",
+            "Sistemas de Informação",
+            "Sistemas de Informação 30/70"
+        ]
+    },
+    "CRISTINA CARVALHO DE MELO": {
+        email: "cristina.melo@animaeducacao.com.br",
+        courses: [
+            "Administração / Administração 30/70",
+            "Ciências Contábeis / Ciências Contábeis 30/70",
+            "Comércio Exterior",
+            "Educação Física / Educação Física 30/70"
+        ]
+    },
+    "DANIEL PORTELA DIAS MACHADO": {
+        email: "daniel.portela@animaeducacao.com.br",
+        courses: [
+            "Medicina Veterinária",
+            "Ciências Econômicas / 30/70"
+        ]
+    },
+    "ELISA CARVALHO DE SIQUEIRA": {
+        email: "elisa.siqueira@animaeducacao.com.br",
+        courses: [
+            "Odontologia",
+            "Design de Interiores",
+            "Design Gráfico",
+            "Design Gráfico 30/70"
+        ]
+    },
+    "ELIZABETH RODRIGUES BRITO IBRAHIM": {
+        email: "elizabeth.ibrahim@animaeducacao.com.br",
+        courses: [
+            "Farmácia",
+            "Farmácia 30/70",
+            "História",
+            "Pedagogia",
+            "Pedagogia 30/70"
+        ]
+    },
+    "MARCOS FERREIRA BENEDITO": {
+        email: "marcos.benedito@animaeducacao.com.br",
+        courses: [
+            "Arquitetura e Urbanismo",
+            "Enfermagem",
+            "Design de Interiores",
+            "Farmácia"
+        ]
+    }
 };
 
+// ======== ESCALA POR DIA (ÍNDICE: 0 = SEG) ========
+const schedule = [
+    [
+        "MARCOS FERREIRA BENEDITO 08:00 às 12:00",
+        "ANA PAULA DOS SANTOS GOMES 8:30 às 12:30",
+        "CRISTINA CARVALHO DE MELO 11:40 às 13:40",
+        "CAMILLA AYALA FELISBERTO SILVA 13:00 às 17:00",
+        "ANA PAULA DOS SANTOS GOMES 13:00 às 15:00",
+        "ELIZABETH RODRIGUES BRITO IBRAHIM 14:00 às 17:00",
+        "CRISTINA CARVALHO DE MELO 15:00 às 19:00",
+        "ELISA CARVALHO DE SIQUEIRA 14:00 às 21:00",
+        "MARCOS FERREIRA BENEDITO 16:00 às 21:00"
+    ],
+    [
+        "ELIZABETH RODRIGUES BRITO IBRAHIM 13:00 às 17:00",
+        "ANA AMELIA FONSECA VIANA CRUZ 08:30 às 12:30",
+        "ANA AMELIA FONSECA VIANA CRUZ 13:30 às 17:30",
+        "ANA PAULA DOS SANTOS GOMES 14:30 às 19:00",
+        "MARCOS FERREIRA BENEDITO 14:00 às 18:00",
+        "CAMILLA AYALA FELISBERTO SILVA 15:00 às 19:00",
+        "DANIEL PORTELA DIAS MACHADO 15:00 às 19:00",
+        "ELISA CARVALHO DE SIQUEIRA 14:00 às 19:00",
+        "CRISTINA CARVALHO DE MELO 15:00 às 20:30"
+    ],
+    [
+        "ELISA SIQUEIRA 8:00 às 13:00",
+        "MARCOS FERREIRA BENEDITO 17:00 às 21:00",
+        "ELIZABETH RODRIGUES BRITO IBRAHIM 17:00 às 21:00"
+    ],
+    [
+        "DANIEL PORTELA DIAS MACHADO 08:00 às 12:00",
+        "CAMILLA AYALA FELISBERTO SILVA 13:00 às 17:00",
+        "ELIZABETH RODRIGUES BRITO IBRAHIM 13:00 às 17:00",
+        "ANA PAULA DOS SANTOS GOMES 15:30 às 21:00",
+        "ANA AMELIA FONSECA VIANA CRUZ 13:00 às 21:00",
+        "DANIEL PORTELA DIAS MACHADO 15:00 às 21:00"
+    ],
+    [
+        "CAMILLA AYALA FELISBERTO SILVA 09:00 às 13:00",
+        "CRISTINA CARVALHO DE MELO 14:30 às 19:00",
+        "MARCOS FERREIRA BENEDITO 17:00 às 19:00",
+        "ELIZABETH RODRIGUES BRITO IBRAHIM 17:00 às 21:00"
+    ]
+];
 
-const grid = document.getElementById("grid");
+let currentDay = 0;
 
+// ==== Renderizar dia ====
+function renderDay(dayIndex) {
+    currentDay = dayIndex;
 
-Object.keys(data).forEach(day => {
-const column = document.createElement("div");
-column.className = "day-column";
+    document.querySelectorAll(".day-btn").forEach(btn => btn.classList.remove("active"));
+    document.querySelector(`.day-btn[data-day="${dayIndex}"]`).classList.add("active");
 
+    const container = document.getElementById("coordinator-list");
+    container.innerHTML = "";
 
-const title = document.createElement("h2");
-title.textContent = day;
-column.appendChild(title);
+    schedule[dayIndex].forEach(entry => {
+        const [name, time] = entry.split(/ (.+)/);
 
+        const data = coordinatorData[name] || null;
 
-data[day].forEach(item => {
-const div = document.createElement("div");
-div.className = "coordinator";
+        const card = document.createElement("div");
+        card.classList.add("card");
 
+        card.innerHTML = `
+            <h2>${name}</h2>
+            <p><strong>Horário:</strong> ${time}</p>
+            ${data ? `
+                <p><strong>Cursos:</strong></p>
+                <ul>${data.courses.map(c => `<li>${c}</li>`).join("")}</ul>
+                <a class="email-btn" href="mailto:${data.email}">
+                    <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png">
+                </a>
+            ` : `<p style="opacity:.6;">(Sem cursos cadastrados)</p>`}
+        `;
 
-div.innerHTML = `
-<div>
-<strong>${item.nome}</strong><br>
-<span>${item.hora}</span>
-</div>
-<a class="email-btn" href="mailto:${item.email}">
-<img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" />
-</a>
-`;
+        container.appendChild(card);
+    });
+}
 
-
-column.appendChild(div);
+// ==== Eventos ====
+document.querySelectorAll(".day-btn").forEach(btn => {
+    btn.addEventListener("click", () => renderDay(Number(btn.dataset.day)));
 });
 
+document.getElementById("prev-day").onclick = () => {
+    currentDay = (currentDay - 1 + 5) % 5;
+    renderDay(currentDay);
+};
 
-grid.appendChild(column);
-});
-</script>
+document.getElementById("next-day").onclick = () => {
+    currentDay = (currentDay + 1) % 5;
+    renderDay(currentDay);
+};
+
+// Inicia na segunda-feira
+renderDay(0);
