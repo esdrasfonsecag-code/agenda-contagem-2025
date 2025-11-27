@@ -1,3 +1,70 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #eef2f7;
+    padding: 20px;
+    text-align: center;
+    color: #333;
+}
+
+h1 {
+    margin-bottom: 20px;
+    font-weight: 600;
+    color: #222;
+}
+
+.dia-atual {
+    font-size: 26px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+.controls {
+    margin-bottom: 25px;
+}
+
+/* Botões de dia modernos */
+.day-btn {
+    padding: 12px 25px;
+    margin: 5px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.day-btn i {
+    font-size: 16px;
+}
+
+.day-btn:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    background: linear-gradient(135deg, #2575fc, #6a11cb);
+}
+
+.day-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(38, 115, 255, 0.4);
+}
+
+/* Cards */
+.cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 .card {
     background: #fff;
     padding: 16px 20px;
@@ -14,13 +81,12 @@
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-/* Container interno para alinhar nome e horário lado a lado */
 .card-info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    margin-right: 10px; /* espaço para o botão de email */
+    margin-right: 10px;
 }
 
 .nome {
@@ -35,4 +101,24 @@
     color: #555;
     margin: 0;
     text-align: right;
+}
+
+/* Botão de email */
+.email-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: #007bff;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.email-btn:hover {
+    background: #0056b3;
+    transform: scale(1.2);
 }
