@@ -1,71 +1,119 @@
-/* Fundo animado */
-body {
-    margin: 0;
-    font-family: "Poppins", Arial, sans-serif;
-    background: linear-gradient(135deg, #0d1117, #161b22, #1f2937);
-    background-size: 300% 300%;
-    animation: bgMove 12s infinite alternate ease-in-out;
-    color: #fff;
+:root{
+  --bg1:#0d1117;
+  --bg2:#161b22;
+  --card-bg: rgba(255,255,255,0.04);
+  --accent: #00c3ff;
 }
 
-@keyframes bgMove {
-    0% { background-position: 0% 50%; }
-    100% { background-position: 100% 50%; }
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+  background: linear-gradient(135deg,var(--bg1),var(--bg2));
+  color:#fff;
+  min-height:100vh;
+  padding:28px 16px;
 }
 
-h1 {
-    text-align: center;
-    margin-top: 30px;
-    font-weight: 600;
-    letter-spacing: 1px;
+h1{
+  text-align:center;
+  margin:6px 0 18px;
+  font-size:22px;
+  letter-spacing:1px;
 }
 
-.container {
-    width: 95%;
-    max-width: 1200px;
-    margin: 30px auto;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(5px);
-    padding: 20px;
-    border-radius: 14px;
-    box-shadow: 0 0 20px rgba(255,255,255,0.08);
-    animation: fadeIn 0.7s ease;
+.container{
+  max-width:1100px;
+  margin:0 auto;
+  background:var(--card-bg);
+  border-radius:12px;
+  padding:18px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+table{
+  width:100%;
+  border-collapse:collapse;
+  table-layout:fixed;
+  font-size:15px;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    color: #fff;
+thead th{
+  background: rgba(255,255,255,0.06);
+  padding:12px 8px;
+  text-transform:uppercase;
+  font-weight:600;
+  letter-spacing:0.6px;
+  text-align:center;
 }
 
-th {
-    background: rgba(255, 255, 255, 0.15);
-    padding: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
+tbody td{
+  padding:12px 8px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  vertical-align:top;
+  text-align:center;
 }
 
-td {
-    padding: 14px;
-    text-align: center;
-    vertical-align: top;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    transition: 0.3s;
+.cell-card{
+  display:inline-block;
+  width:100%;
+  padding:8px 10px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  box-shadow: 0 4px 12px rgba(0,0,0,0.45);
+  transition: transform .18s ease, box-shadow .18s ease;
 }
 
-td:hover {
-    background: rgba(255,255,255,0.08);
-    cursor: default;
+.cell-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-/* Ícone como botão */
-.email-btn {
-    cursor: pointer;
-    font-size: 22px;
-    margin-top: 6px;
-    display: inline-block;
+.cell-name{
+  font-weight:700;
+  display:block;
+  margin-bottom:6px;
+  font-size:15px;
+}
+
+.cell-hour{
+  color: #d0d7de;
+  font-size:14px;
+  margin-bottom:8px;
+}
+
+/* botão de e-mail (emoji) */
+.email-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background: rgba(255,255,255,0.03);
+  color:var(--accent);
+  font-size:18px;
+  text-decoration:none;
+  transition: transform .18s ease, box-shadow .18s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4), inset 0 0 6px rgba(255,255,255,0.02);
+}
+
+.email-btn:hover{
+  transform:scale(1.18);
+  box-shadow: 0 10px 28px rgba(0,0,0,0.6), 0 0 12px rgba(0,195,255,0.12);
+}
+
+.update-info{
+  text-align:center;
+  opacity:0.8;
+  margin-top:12px;
+  font-size:13px;
+}
+
+@media (max-width:760px){
+  thead th{ font-size:12px; padding:10px 6px; }
+  tbody td{ font-size:13px; padding:10px 6px; }
+  .cell-name{ font-size:14px; }
+  .cell-hour{ font-size:13px; }
+}
