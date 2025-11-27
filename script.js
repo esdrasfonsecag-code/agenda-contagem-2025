@@ -1,181 +1,106 @@
-/* Reset e fonte */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    margin: 0;
-    padding: 20px;
-    min-height: 100vh;
-    color: #222;
-    background: linear-gradient(-45deg, #84fab0, #8fd3f4, #a6c0fe, #fbc2eb);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    text-align: center;
-}
-
-/* Gradiente animado */
-@keyframes gradientBG {
-    0% {background-position: 0% 50%;}
-    50% {background-position: 100% 50%;}
-    100% {background-position: 0% 50%;}
-}
-
-/* Títulos */
-h1, .section-title {
-    color: #222;
-    margin-bottom: 20px;
-}
-
-.section-title {
-    margin-top: 40px;
-    font-size: 1.8em;
-}
-
-/* Botões de dias */
-.controls {
-    margin-bottom: 20px;
-}
-
-.day-btn {
-    padding: 12px 20px;
-    margin: 0 10px;
-    cursor: pointer;
-    border-radius: 10px;
-    border: none;
-    background: #007bff;
-    color: #fff;
-    font-size: 16px;
-    font-weight: 600;
-    transition: 0.3s;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.day-btn i {
-    margin: 0 5px;
-}
-
-.day-btn:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-}
-
-/* Dia atual */
-.dia-atual {
-    font-size: 1.8em;
-    font-weight: bold;
-    margin-bottom: 20px;
-}
-
-/* Cards container */
-.cards-container {
-    max-width: 900px;
-    margin: 0 auto 30px auto;
-}
-
-/* Cards da agenda e coordenadores */
-.card {
-    background: rgba(255,255,255,0.95);
-    padding: 15px 20px;
-    margin: 12px 0;
-    border-radius: 15px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-}
-
-/* Colunas dentro do card */
-.card-info {
-    flex: 1 1 35%;
-    text-align: left;
-    margin: 5px;
-}
-
-.cursos {
-    flex: 1 1 60%;
-    text-align: left;
-    margin: 5px;
-}
-
-/* Nome e email */
-.card-info .nome {
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-.card-info .email {
-    font-size: 0.95em;
-    color: #555;
-    margin-top: 4px;
-}
-
-.card-info .email a {
-    color: #007bff;
-    text-decoration: none;
-}
-
-.card-info .email a:hover {
-    text-decoration: underline;
-}
-
-/* Cursos */
-.cursos ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.cursos li {
-    display: flex;
-    align-items: center;
-    margin-bottom: 6px;
-    line-height: 1.4em;
-    transition: transform 0.2s, color 0.2s;
-    cursor: default;
-}
-
-.cursos li i {
-    margin-right: 8px;
-    color: #007bff;
-}
-
-/* Hover nos cursos */
-.cursos li:hover {
-    color: #0056b3;
-    transform: translateX(3px);
-}
-
-/* Botão de email */
-.email-btn {
-    display: inline-block;
-    font-size: 1.2em;
-    color: #fff;
-    background: #28a745;
-    padding: 10px 14px;
-    border-radius: 50%;
-    transition: 0.3s;
-    margin-left: 10px;
-}
-
-.email-btn:hover {
-    background: #218838;
-    transform: scale(1.1);
-}
-
-/* Responsividade */
-@media screen and (max-width: 900px) {
-    .card {
-        flex-direction: column;
-        align-items: flex-start;
+const coordenadores = {
+    "Ana Amelia Fonseca Viana Cruz": {
+        email: "ana.vicruz@ulife.com.br",
+        cursos: [
+            "Biomedicina",
+            "Biomedicina (Semipresencial) 30/70",
+            "Fisioterapia",
+            "Fisioterapia (Semipresencial) 30/70",
+            "Estética e Cosmética",
+            "Estética e Cosmética (Semipresencial) 30/70"
+        ]
+    },
+    "Ana Paula dos Santos Gomes": {
+        email: "ana.paula1@animaeducacao.com.br",
+        cursos: [
+            "Nutrição",
+            "Nutrição (Semipresencial) 30/70",
+            "Psicologia"
+        ]
+    },
+    "Camilla Ayala Felisberto Silva": {
+        email: "camilla.felisberto@animaeducacao.com.br",
+        cursos: [
+            "Análise e Desenvolvimento de Sistemas",
+            "Análise e Desenvolvimento de Sistemas (Semipresencial) 30/70",
+            "Ciência da Computação (Semipresencial) 30/70",
+            "Ciências da Computação",
+            "Direito",
+            "Sistemas de Informação",
+            "Sistemas de Informação (Semipresencial) 30/70"
+        ]
+    },
+    "Cristina Carvalho de Melo": {
+        email: "cristina.melo@animaeducacao.com.br",
+        cursos: [
+            "Administração / Administração (Semipresencial) 30/70",
+            "Ciências Contábeis / Ciências Contábeis (Semipresencial) 30/70",
+            "Ciências Econômicas / Ciências Econômicas (Semipresencial) 30/70",
+            "Comércio Exterior",
+            "Educação física / Educação Física (Semipresencial) 30/70",
+            "Gestão Comercial",
+            "Gestão Comercial (Semipresencial) 30/70",
+            "Gestão da Inovação e Empreendedorismo Digital",
+            "Gestão da Produção Industrial",
+            "Gestão da Qualidade",
+            "Gestão da Qualidade (Semipresencial) 30/70",
+            "Gestão da Tecnologia da Informação / Gestão da Tecnologia da Informação (Semipresencial) 30/70",
+            "Gestão de Processos e Projetos Ágeis",
+            "Gestão de Recursos Humanos / Gestão de Recursos Humanos (Semipresencial) 30/70",
+            "Gestão Financeira / Gestão Financeira (Semipresencial) 30/70",
+            "Gestão Pública (Semipresencial) 30/70",
+            "Governança Corporativa e Consultoria de Negócios",
+            "Investimento e formação de Traders",
+            "Logística / Logística (Semipresencial) 30/70",
+            "Marketing / Marketing (Semipresencial) 30/70",
+            "Marketing Digital",
+            "Negócios Imobiliários",
+            "Processos Gerenciais / Processos Gerenciais (Semipresencial) 30/70"
+        ]
+    },
+    "Daniel Portela Dias Machado": {
+        email: "daniel.portela@animaeducacao.com.br",
+        cursos: [
+            "Medicina Veterinária",
+            "Engenharia Civil",
+            "Engenharia Civil (Semipresencial) 30/70",
+            "Engenharia da Computação",
+            "Engenharia de Controle e Automação",
+            "Engenharia de Produção",
+            "Engenharia de Produção (Semipresencial) 30/70",
+            "Engenharia de Software",
+            "Engenharia Elétrica",
+            "Engenharia Elétrica (Semipresencial) 30/70",
+            "Engenharia Mecânica",
+            "Engenharia Mecânica (Semipresencial) 30/70",
+            "Jornalismo",
+            "Publicidade e Propaganda"
+        ]
+    },
+    "Elisa Carvalho de Siqueira": {
+        email: "elisa.siqueira@animaeducacao.com.br",
+        cursos: [
+            "Odontologia",
+            "Design de Interiores",
+            "Design Gráfico",
+            "Design Gráfico (Semipresencial) 30/70"
+        ]
+    },
+    "Elizabeth Rodrigues Brito Ibrahim": {
+        email: "elizabeth.ibrahim@animaeducacao.com.br",
+        cursos: [
+            "Arquitetura e Urbanismo",
+            "Farmácia",
+            "Farmácia (Semipresencial) 30/70",
+            "História",
+            "Pedagogia",
+            "Pedagogia (Semipresencial) 30/70"
+        ]
+    },
+    "Marcos Ferreira Benedito": {
+        email: "marcos.benedito@animaeducacao.com.br",
+        cursos: [
+            "Enfermagem"
+        ]
     }
-    .card-info, .cursos {
-        flex: 1 1 100%;
-        margin: 5px 0;
-    }
-}
+};
