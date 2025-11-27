@@ -1,148 +1,132 @@
-/* Fundo animado */
+/* Fonte e fundo animado */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     padding: 20px;
-    text-align: center;
-    min-height: 100vh;
-    background: linear-gradient(-45deg, #a1c4fd, #c2e9fb, #fbc2eb, #a6c1ee);
+    margin: 0;
+    background: linear-gradient(-45deg, #a8edea, #fed6e3, #fbc2eb, #a6c1ee);
     background-size: 400% 400%;
     animation: gradientBG 15s ease infinite;
+    text-align: center;
     color: #333;
 }
 
 @keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
+    0% {background-position:0% 50%;}
+    50% {background-position:100% 50%;}
+    100% {background-position:0% 50%;}
 }
 
 h1, h2 {
     margin-bottom: 20px;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
 }
 
-.controls {
-    margin-bottom: 20px;
-}
-
+/* Botões modernos */
 button {
-    padding: 12px 25px;
-    margin: 0 10px 20px 10px;
-    cursor: pointer;
-    border-radius: 10px;
+    padding: 10px 20px;
+    margin: 10px;
     border: none;
+    border-radius: 8px;
     background: #007bff;
     color: white;
     font-size: 16px;
-    font-weight: bold;
+    cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 button:hover {
     background: #0056b3;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+    transform: scale(1.05);
 }
 
-/* Agenda */
-.agenda {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    max-width: 1000px;
-    margin: 0 auto 40px auto;
+/* Cards da agenda */
+#conteudo {
+    margin: 20px auto;
+    max-width: 700px;
 }
 
 .card {
-    background: #ffffffcc;
-    padding: 15px;
+    background: rgba(255,255,255,0.9);
+    padding: 12px 20px;
+    margin: 10px 0;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    text-align: left;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeSlideIn 0.5s forwards;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0,0,0,0.3);
 }
 
 .card-info {
     display: flex;
-    justify-content: space-between;
-    font-weight: bold;
+    flex-direction: column;
+    text-align: left;
 }
 
 .nome {
-    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 4px;
 }
 
-.horario, .email {
+.horario {
     font-size: 14px;
-    font-weight: normal;
+    color: #555;
 }
 
 .email-btn {
     display: inline-block;
-    margin-top: 8px;
     padding: 6px 12px;
     background: #28a745;
     color: white;
-    border-radius: 8px;
+    border-radius: 6px;
     text-decoration: none;
-    transition: all 0.3s ease;
     font-size: 14px;
+    transition: background 0.3s ease;
 }
 
 .email-btn:hover {
     background: #1e7e34;
-    transform: translateY(-2px);
 }
 
-/* Coordenadores */
-.coordenadores-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+/* Coordenadores e cursos */
+#coordenadores {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     margin-top: 20px;
 }
 
 .coordenador-card {
-    background: #ffffffcc;
-    padding: 15px;
+    background: rgba(255,255,255,0.95);
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    text-align: left;
+    padding: 15px 20px;
+    margin: 10px;
+    width: 280px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeSlideIn 0.5s forwards;
 }
 
 .coordenador-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-.coordenador-card .nome {
-    font-size: 16px;
-    font-weight: bold;
+.cursos {
+    text-align: left;
+    margin-top: 10px;
+    padding-left: 20px;
 }
 
-.coordenador-card .email {
-    font-size: 14px;
-    margin-bottom: 10px;
+.cursos li {
+    margin: 4px 0;
+    line-height: 1.4;
+    transition: color 0.3s ease;
 }
 
-.coordenador-card .cursos li {
-    padding: 2px 0;
-    transition: color 0.3s;
-}
-
-.coordenador-card:hover .cursos li {
+.cursos li:hover {
     color: #007bff;
 }
-
-/* Animação fade-slide */
-@keyframes fadeSlideIn {
-    to {
-        opacity:
