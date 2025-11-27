@@ -123,3 +123,57 @@ const coordenadores = {
             "Design Gráfico (Semipresencial) 30/70"
         ]
     },
+    "Elizabeth Rodrigues Brito Ibrahim": {
+        email: "elizabeth.ibrahim@animaeducacao.com.br",
+        cursos: [
+            "Arquitetura e Urbanismo",
+            "Farmácia",
+            "Farmácia (Semipresencial) 30/70",
+            "História",
+            "Pedagogia",
+            "Pedagogia (Semipresencial) 30/70"
+        ]
+    },
+    "Marcos Ferreira Benedito": {
+        email: "marcos.benedito@animaeducacao.com.br",
+        cursos: [
+            "Enfermagem",
+            "Jornalismo",
+            "Publicidade e Propaganda"
+        ]
+    }
+};
+
+let index = 0;
+
+function gerarBotaoEmail(nome){
+    const email = emails[nome];
+    if(!email) return "";
+    return `<a class="email-btn" href="mailto:${email}">📧 Enviar Email</a>`;
+}
+
+function atualizar(){
+    const diaAtual = document.getElementById("dia-atual");
+    const conteudo = document.getElementById("conteudo");
+    diaAtual.innerText = dias[index].nome;
+    conteudo.innerHTML = dias[index].horarios.map(h=>{
+        const [nome, horario] = h.split(" — ");
+        return `<div class="card">
+                    <div class="card-info">
+                        <p class="nome">${nome}</p>
+                        <p class="horario">${horario}</p>
+                    </div>
+                    ${gerarBotaoEmail(nome)}
+                </div>`;
+    }).join('');
+}
+
+function renderCoordenadores(){
+    const container = document.getElementById("coordenadores");
+    container.innerHTML = Object.keys(coordenadores).map(nome=>{
+        const c = coordenadores[nome];
+        return `<div class="coordenador-card">
+                    <p class="nome">${nome}</p>
+                    <a class="email-btn" href="mailto:${c.email}">${c.email}</a>
+                    <ul class="cursos">
+                        ${c.cursos.map(course=
