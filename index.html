@@ -1,35 +1,31 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda dos Coordenadores — 2025</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Agenda dos Coordenadores — 2025</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body>
+<div class="bg-anim"></div>
 
-<div class="bg-animated"></div>
 
 <header>
-    <h1>Agenda dos Coordenadores — 2025</h1>
-    <p id="date-time"></p>
+<h1>Agenda dos Coordenadores — 2025</h1>
+<p id="datetime"></p>
 </header>
 
-<section class="week-navigation">
-    <button id="prev-day" class="nav-btn">⟵</button>
 
-    <div class="day-buttons">
-        <button class="day-btn" data-day="0">SEGUNDA</button>
-        <button class="day-btn" data-day="1">TERÇA</button>
-        <button class="day-btn" data-day="2">QUARTA</button>
-        <button class="day-btn" data-day="3">QUINTA</button>
-        <button class="day-btn" data-day="4">SEXTA</button>
-    </div>
-
-    <button id="next-day" class="nav-btn">⟶</button>
+<section class="controls">
+<button id="prevDay" class="day-btn">◀</button>
+<h2 id="currentDay">SEGUNDA</h2>
+<button id="nextDay" class="day-btn">▶</button>
 </section>
 
-<section id="coordinator-list"></section>
+
+<section id="content" class="content"></section>
+
 
 <script src="script.js"></script>
 </body>
